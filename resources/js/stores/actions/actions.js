@@ -1,5 +1,6 @@
 import pupils_actions from './pupilsActions.js'
 import teachers_actions from './teachersActions.js'
+import auth_actions from './authActions.js'
 
 
 const default_actions = {
@@ -15,18 +16,12 @@ const default_actions = {
 			.then(response => {
 				state.commit('GET_TOOLS', response.data)
 			})      
-	},
-	logout: (state) => {
-        axios.post('/admin/director/master/logout&user')
-			.then(response => {
-				state.commit('LOGOUT', response.data)
-			})      
 	}
 
 }
 
 const actions = {
-	...teachers_actions, ...pupils_actions, ...default_actions
+	...teachers_actions, ...pupils_actions, ...auth_actions, ...default_actions
 }
 
 export default actions

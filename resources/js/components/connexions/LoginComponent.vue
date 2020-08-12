@@ -13,20 +13,27 @@
 	      			Le formulaire est invalid
 	      		</h5>
 		        <form class="opac-form" id="login-form" method="post">
-		        	
+		        	<div class="mx-auto mt-2 d-flex justify-content-between" style="width: 93%">
+                        <div class="mx-auto w-100">
+                            <label for="log_add" class="m-0 p-0">Adresse E-mail</label>
+                            <input type="text" class="m-0 p-0 form-control p-1" :class="getInvalids('add', invalidInputs) + '' + emailIsValid()" name="add" id="log_add" placeholder="Veuillez renseigner votre adresse électronique" v-model="valideAdd">
+                            <i class="h5-title" v-if="invalidInputs !== undefined && invalidInputs.name !== undefined"> {{ invalidInputs.name[0] }} </i>
+                            <i class="h5-title" v-if="wrongAdd"> L'adresse que vous renseigner est invalide </i>
+                        </div>
+                    </div>
+                    <div class="mx-auto mt-2 d-flex justify-content-between" style="width: 93%">
+                        <div class="mx-auto w-100">
+                            <label for="log_pwd" class="m-0 p-0">Mot de Passe</label>
+                            <input type="password" class="m-0 p-0 form-control p-1" :class="getInvalids('pwd', invalidInputs)" name="pwd" id="log_pwd" placeholder="Veuillez renseigner votre mot de passe" v-model="password">
+                            <i class="h5-title" v-if="invalidInputs !== undefined && invalidInputs.name !== undefined"> {{ invalidInputs.name[0] }} </i>
+                        </div>
+                        
+                    </div>
 			    </form>
 	      		</div>
 			    <div class="mx-auto mt-2 p-1 pb-2 buttons-div" style="width: 93%">
-			        <button type="button" class="btn btn-primary w-25 float-right">Se connecter</button>
+			        <button type="button" class="btn btn-primary w-25 float-right" @click="login()">Se connecter</button>
 			        <button type="button" class="btn btn-secondary w-25 mx-1 float-right" data-dismiss="modal">Annuler</button>
-			    </div>
-			    <div class="mx-auto mt-2 p-1 pb-2 div-success" style="width: 93%; display: none">
-			    	<div class="d-flex justify-content-center w-100 p-2 my-1">
-			    		<h4></h4>
-			    	</div>
-			        <div class="w-75 mx-auto d-flex justify-content-center">
-			        	<button type="button" class="btn w-50 bg-transparent border shadow mx-1 px-1" data-dismiss="modal">Terminer</button>
-			        </div>
 			    </div>
 	    	</div>
 	  	</div>
@@ -39,7 +46,9 @@
 	export default{
 		data(){
 			return {
-				show: true,
+				valideAdd: '',
+				password: '',
+				wrongAdd: false
 			}
 		},
 		created(){
@@ -67,12 +76,32 @@
 					return ''
 				}
 				
+			},
+			emailIsValid(){
+				if(this.valideAdd !== ""){
+					if(this.addresses[this.valideAdd] !== undefined){
+						this.wrongAdd = false
+						return ""
+					}
+					this.wrongAdd = true
+					return 'is-invalid'
+				}
+				else{
+					this.wrongAdd = false
+					return ""
+				}
+				
+				
+			},
+
+			login(){
+				this.$store.dispatch('login', {email: this.valideAdd, password: this.password})
 			}
 			
 		},
 
 		computed: mapState([
-            'newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'primaryClasses', 'secondaryClasses', 'newPupilName'
+            'newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'users', 'addresses', 'loginNotif'
         ]),
 
 

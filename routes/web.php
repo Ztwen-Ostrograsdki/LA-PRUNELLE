@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::get('master/get&counter&for&all&data&with&authorization', 'Master\SuperAdminController@dataSender');
 		Route::get('master/get&all&data&tools&with&authorization', 'Master\SuperAdminController@getTOOLS');
 		Route::post('master/getCurrentUser&auth', 'AuthController@auth');
+		Route::post('master/get&all&users', 'AuthController@getUsers');
+
 		Route::post('master/logout&user', 'Master\SuperAdminController@logout');
 		Route::resource('master', 'Master\SuperAdminController')->middleware('onlySuperAdmin');
 
@@ -72,6 +74,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
+Route::post('login/user&get&auth', 'Auth\LoginController@login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

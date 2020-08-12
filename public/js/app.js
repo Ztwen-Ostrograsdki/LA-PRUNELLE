@@ -2364,11 +2364,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      show: true
+      valideAdd: '',
+      password: '',
+      wrongAdd: false
     };
   },
   created: function created() {},
@@ -2391,9 +2400,29 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return '';
       }
+    },
+    emailIsValid: function emailIsValid() {
+      if (this.valideAdd !== "") {
+        if (this.addresses[this.valideAdd] !== undefined) {
+          this.wrongAdd = false;
+          return "";
+        }
+
+        this.wrongAdd = true;
+        return 'is-invalid';
+      } else {
+        this.wrongAdd = false;
+        return "";
+      }
+    },
+    login: function login() {
+      this.$store.dispatch('login', {
+        email: this.valideAdd,
+        password: this.password
+      });
     }
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'primaryClasses', 'secondaryClasses', 'newPupilName'])
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'users', 'addresses', 'loginNotif'])
 });
 
 /***/ }),
@@ -3361,7 +3390,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['user', 'admin', 'errors', 'userSettings', 'logout'])
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['user', 'admin', 'errors', 'userSettings', 'logout', 'users', 'loginNotif'])
 });
 
 /***/ }),
@@ -3459,6 +3488,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     userSettingsShow: function userSettingsShow() {
       this.$store.commit('USER_SETTINGS', !this.userSettings);
+    },
+    getUsers: function getUsers() {
+      this.$store.dispatch('getUsers');
     }
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['user', 'admin', 'errors', 'userSettings', 'noUser'])
@@ -43994,15 +44026,176 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _c("form", {
-                  staticClass: "opac-form",
-                  attrs: { id: "login-form", method: "post" }
-                })
+                _c(
+                  "form",
+                  {
+                    staticClass: "opac-form",
+                    attrs: { id: "login-form", method: "post" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "mx-auto mt-2 d-flex justify-content-between",
+                        staticStyle: { width: "93%" }
+                      },
+                      [
+                        _c("div", { staticClass: "mx-auto w-100" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "m-0 p-0",
+                              attrs: { for: "log_add" }
+                            },
+                            [_vm._v("Adresse E-mail")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.valideAdd,
+                                expression: "valideAdd"
+                              }
+                            ],
+                            staticClass: "m-0 p-0 form-control p-1",
+                            class:
+                              _vm.getInvalids("add", _vm.invalidInputs) +
+                              "" +
+                              _vm.emailIsValid(),
+                            attrs: {
+                              type: "text",
+                              name: "add",
+                              id: "log_add",
+                              placeholder:
+                                "Veuillez renseigner votre adresse électronique"
+                            },
+                            domProps: { value: _vm.valideAdd },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.valideAdd = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.invalidInputs !== undefined &&
+                          _vm.invalidInputs.name !== undefined
+                            ? _c("i", { staticClass: "h5-title" }, [
+                                _vm._v(
+                                  " " + _vm._s(_vm.invalidInputs.name[0]) + " "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.wrongAdd
+                            ? _c("i", { staticClass: "h5-title" }, [
+                                _vm._v(
+                                  " L'adresse que vous renseigner est invalide "
+                                )
+                              ])
+                            : _vm._e()
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "mx-auto mt-2 d-flex justify-content-between",
+                        staticStyle: { width: "93%" }
+                      },
+                      [
+                        _c("div", { staticClass: "mx-auto w-100" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "m-0 p-0",
+                              attrs: { for: "log_pwd" }
+                            },
+                            [_vm._v("Mot de Passe")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.password,
+                                expression: "password"
+                              }
+                            ],
+                            staticClass: "m-0 p-0 form-control p-1",
+                            class: _vm.getInvalids("pwd", _vm.invalidInputs),
+                            attrs: {
+                              type: "password",
+                              name: "pwd",
+                              id: "log_pwd",
+                              placeholder:
+                                "Veuillez renseigner votre mot de passe"
+                            },
+                            domProps: { value: _vm.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.password = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.invalidInputs !== undefined &&
+                          _vm.invalidInputs.name !== undefined
+                            ? _c("i", { staticClass: "h5-title" }, [
+                                _vm._v(
+                                  " " + _vm._s(_vm.invalidInputs.name[0]) + " "
+                                )
+                              ])
+                            : _vm._e()
+                        ])
+                      ]
+                    )
+                  ]
+                )
               ]),
               _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2)
+              _c(
+                "div",
+                {
+                  staticClass: "mx-auto mt-2 p-1 pb-2 buttons-div",
+                  staticStyle: { width: "93%" }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary w-25 float-right",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.login()
+                        }
+                      }
+                    },
+                    [_vm._v("Se connecter")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary w-25 mx-1 float-right",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Annuler")]
+                  )
+                ]
+              )
             ]
           )
         ]
@@ -44032,71 +44225,6 @@ var staticRenderFns = [
             _c("h4", { staticClass: "modal-title w-100 mb-0 text-left pr-2" }, [
               _vm._v("Connection")
             ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mx-auto mt-2 p-1 pb-2 buttons-div",
-        staticStyle: { width: "93%" }
-      },
-      [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary w-25 float-right",
-            attrs: { type: "button" }
-          },
-          [_vm._v("Se connecter")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-secondary w-25 mx-1 float-right",
-            attrs: { type: "button", "data-dismiss": "modal" }
-          },
-          [_vm._v("Annuler")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mx-auto mt-2 p-1 pb-2 div-success",
-        staticStyle: { width: "93%", display: "none" }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "d-flex justify-content-center w-100 p-2 my-1" },
-          [_c("h4")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "w-75 mx-auto d-flex justify-content-center" },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "btn w-50 bg-transparent border shadow mx-1 px-1",
-                attrs: { type: "button", "data-dismiss": "modal" }
-              },
-              [_vm._v("Terminer")]
-            )
           ]
         )
       ]
@@ -47929,6 +48057,11 @@ var render = function() {
                     href: "#",
                     "data-toggle": "modal",
                     "data-target": "#loginModal"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.getUsers()
+                    }
                   }
                 },
                 [_vm._v("Login")]
@@ -71986,11 +72119,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pupilsActions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pupilsActions.js */ "./resources/js/stores/actions/pupilsActions.js");
 /* harmony import */ var _teachersActions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./teachersActions.js */ "./resources/js/stores/actions/teachersActions.js");
+/* harmony import */ var _authActions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authActions.js */ "./resources/js/stores/actions/authActions.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -72004,17 +72139,45 @@ var default_actions = {
     axios.get('/admin/director/master/get&all&data&tools&with&authorization').then(function (response) {
       state.commit('GET_TOOLS', response.data);
     });
-  },
+  }
+};
+
+var actions = _objectSpread({}, _teachersActions_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}, _pupilsActions_js__WEBPACK_IMPORTED_MODULE_0__["default"], {}, _authActions_js__WEBPACK_IMPORTED_MODULE_2__["default"], {}, default_actions);
+
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/stores/actions/authActions.js":
+/*!****************************************************!*\
+  !*** ./resources/js/stores/actions/authActions.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var auth_actions = {
   logout: function logout(state) {
     axios.post('/admin/director/master/logout&user').then(function (response) {
       state.commit('LOGOUT', response.data);
     });
+  },
+  login: function login(state, user) {
+    axios.post('login/user&get&auth', user).then(function (response) {
+      console.log(response.data);
+    });
+  },
+  getUsers: function getUsers(state) {
+    axios.post('/admin/director/master/get&all&users').then(function (response) {
+      state.commit('GET_USERS', {
+        users: response.data.users,
+        addresses: response.data.addresses
+      });
+    });
   }
 };
-
-var actions = _objectSpread({}, _teachersActions_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}, _pupilsActions_js__WEBPACK_IMPORTED_MODULE_0__["default"], {}, default_actions);
-
-/* harmony default export */ __webpack_exports__["default"] = (actions);
+/* harmony default export */ __webpack_exports__["default"] = (auth_actions);
 
 /***/ }),
 
@@ -72269,6 +72432,41 @@ var teachers_actions = {
 
 /***/ }),
 
+/***/ "./resources/js/stores/mutations/authMutations.js":
+/*!********************************************************!*\
+  !*** ./resources/js/stores/mutations/authMutations.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var auth_mutations = {
+  GET_USERS: function GET_USERS(state, data) {
+    state.users = data.users;
+    state.addresses = data.addresses;
+  },
+  LOGOUT: function LOGOUT(state, msg) {
+    state.userSettings = false;
+    state.user = {};
+    state.admin = false;
+    state.noUser = true;
+    state.logout = msg;
+  },
+  SET_TOKEN: function SET_TOKEN(state, token) {
+    state.token = token;
+  },
+  USER_SETTINGS: function USER_SETTINGS(state, value) {
+    state.userSettings = value;
+  },
+  RESET_LOGIN_NOTIF: function RESET_LOGIN_NOTIF(state, value) {
+    state.loginNotif = value;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (auth_mutations);
+
+/***/ }),
+
 /***/ "./resources/js/stores/mutations/mutations.js":
 /*!****************************************************!*\
   !*** ./resources/js/stores/mutations/mutations.js ***!
@@ -72280,11 +72478,13 @@ var teachers_actions = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pupilsMutations_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pupilsMutations.js */ "./resources/js/stores/mutations/pupilsMutations.js");
 /* harmony import */ var _teachersMutations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./teachersMutations.js */ "./resources/js/stores/mutations/teachersMutations.js");
+/* harmony import */ var _authMutations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authMutations.js */ "./resources/js/stores/mutations/authMutations.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -72339,23 +72539,10 @@ var default_mutations = {
     state.invalidInputs = undefined;
     state.successed.status = true;
     state.successed.message = message;
-  },
-  SET_TOKEN: function SET_TOKEN(state, token) {
-    state.token = token;
-  },
-  USER_SETTINGS: function USER_SETTINGS(state, value) {
-    state.userSettings = value;
-  },
-  LOGOUT: function LOGOUT(state, msg) {
-    state.userSettings = false;
-    state.user = {};
-    state.admin = false;
-    state.noUser = true;
-    state.logout = msg;
   }
 };
 
-var mutations = _objectSpread({}, _pupilsMutations_js__WEBPACK_IMPORTED_MODULE_0__["default"], {}, _teachersMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}, default_mutations);
+var mutations = _objectSpread({}, _pupilsMutations_js__WEBPACK_IMPORTED_MODULE_0__["default"], {}, _teachersMutations_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}, _authMutations_js__WEBPACK_IMPORTED_MODULE_2__["default"], {}, default_mutations);
 
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
 
@@ -72582,6 +72769,9 @@ var teachers_mutations = {
 __webpack_require__.r(__webpack_exports__);
 var auth_states = {
   user: {},
+  addresses: [],
+  users: [],
+  loginNotif: '',
   admin: false,
   userSettings: false,
   noUser: true,

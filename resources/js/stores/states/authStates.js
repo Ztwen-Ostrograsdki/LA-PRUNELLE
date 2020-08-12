@@ -1,5 +1,8 @@
 const auth_states = {
 	user: {},
+	addresses: [],
+	users: [],
+    loginNotif: '',
     admin: false,
     userSettings: false,
     noUser: true,

@@ -34,7 +34,7 @@
             
         },
 		computed: mapState([
-            'user', 'admin', 'errors', 'userSettings', 'logout'
+            'user', 'admin', 'errors', 'userSettings', 'logout', 'users', 'loginNotif'
         ])
 
 	}

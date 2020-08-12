@@ -64,7 +64,7 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         $err =  $this->sendFailedLoginResponse($request);
-        return $err;
+        return response()->json($err);
     
     }
 

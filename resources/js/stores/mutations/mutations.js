@@ -1,5 +1,6 @@
 import pupils_mutations from './pupilsMutations.js'
 import teachers_mutations from './teachersMutations.js'
+import auth_mutations from './authMutations.js'
 
 const default_mutations = {
 
@@ -61,20 +62,8 @@ const default_mutations = {
 		state.invalidInputs = undefined
 		state.successed.status = true
 		state.successed.message = message
-	},
-	SET_TOKEN: (state, token) => {
-        state.token = token
-    },
-    USER_SETTINGS: (state, value) => {
-        state.userSettings = value
-    },
-    LOGOUT: (state, msg) => {
-        state.userSettings = false
-        state.user = {}
-        state.admin = false
-        state.noUser = true
-        state.logout = msg
-    },
+	}
+    
 
 
 
@@ -83,7 +72,7 @@ const default_mutations = {
 }
 
 const mutations = {
-	...pupils_mutations, ...teachers_mutations, ...default_mutations
+	...pupils_mutations, ...teachers_mutations, ...auth_mutations, ...default_mutations
 }
 
 export default mutations

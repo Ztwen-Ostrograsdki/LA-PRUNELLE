@@ -63,7 +63,7 @@
                 </div> 
             </div>
                 <div class="position-absolute register-home-links border  d-none d-lg-flex justify-content-between text-center mt-2" style="top: 10px; right: 3%; width: 15%; border-radius: 10px" v-if="noUser">
-                    <a href="#" class="py-1 link-float" data-toggle="modal" data-target="#loginModal">Login</a>
+                    <a href="#" class="py-1 link-float" data-toggle="modal" data-target="#loginModal" @click="getUsers()">Login</a>
                         <a href="#" id="register-link-home" class="register-link py-1 link-float">Register</a>
                 </div>
                 <div class="position-absolute row register-home-links d-lg-none text-center mt-2" style="top:10px; right: 50px; width: auto; border-radius: 10px">
@@ -84,7 +84,11 @@
 
 			userSettingsShow() {
 				this.$store.commit('USER_SETTINGS', !this.userSettings)
-			}
+			},
+
+            getUsers() {
+                this.$store.dispatch('getUsers')
+            }
 		},
 
 		computed: mapState([
