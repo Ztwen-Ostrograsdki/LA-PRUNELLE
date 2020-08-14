@@ -54,17 +54,31 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
-            // return response()->json(['success'=> $response]);
+            $this->sendLoginResponse($request);
+            
+            $user = auth()->user();
+            $admin = false;
+            $roles = $user->getRoles();
+            
+            if (in_array('admin', $roles) || in_array('superAdmin', $roles)) {
+                $admin = true;
+            }
+
+            return response()->json(['user'=> $user, 'admin' => $admin]);
+        }
+        else{
+
+            // If the login attempt was unsuccessful we will increment the number of attempts
+            // to login and redirect the user back to the login form. Of course, when this
+            // user surpasses their maximum number of attempts they will get locked out.
+            // $this->incrementLoginAttempts($request);
+            // $this->sendFailedLoginResponse($request);
+
+            return response()->json(['invalidInputs'=> "Les coordonnées que vous avez entrez ne correspondent pas!"]);
         }
 
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
-        $this->incrementLoginAttempts($request);
-
-        $err =  $this->sendFailedLoginResponse($request);
-        return response()->json($err);
+       
+        
     
     }
 

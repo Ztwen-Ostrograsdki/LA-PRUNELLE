@@ -169,7 +169,7 @@
                                                     {{pupil.name}}
                                                 </span>
                                             </router-link>
-                                            <a href="#" title="card-link Editer les informations de" class="fa fa-edit text-white-50 float-right" style="font-size: 10px!important; font-weight: 200!important" data-toggle="modal" data-target="#editPupilPersoModal" @click="getEdited(pupil)" @mouseout="closeProfiler()" @mouseover="openProfiler()"></a>
+                                            <a href="#" title="card-link Editer les informations de" class="fa fa-edit text-white-50 float-right" style="font-size: 10px!important; font-weight: 200!important" data-toggle="modal" data-target="#editPupilPersoModal" @click="getEdited(pupil)" @mouseout="closeProfiler()"></a>
                                         </td>
                                         <td>
                                             {{gender(pupil.sexe)}}

@@ -5,27 +5,26 @@
 		    	<span class="d-inline-block text-white close py-2 px-3 align-self-end modalCloser" data-dismiss="modal" aria-label="Close" >x</span>
 		      	<div class="modal-header w-100 d-flex justify-content-between p-0 pl-2 m-0">
 			        <div class="modal-header w-100 d-flex justify-content-between p-0 pl-2 m-0">
-		                <h4 class="modal-title w-100 mb-0 text-left pr-2">Connection</h4>
+		                <h4 class="modal-title w-100 mb-0 text-left pr-2" v-if="noUser">Connection</h4>
+		                <h4 class="modal-title w-100 mb-0 text-left pr-2" v-if="!noUser">Connection réussie <span class="fa fa-circle text-success ml-3 mt-2" style="font-size: 10px"></span></h4>
 		            </div>
 		      	</div>
 	      		<div class="modal-body">
 	      		<h5 class="w-100 mx-auto p-1 h5-title text-danger text-center" v-if="invalidInputs !== undefined">
-	      			Le formulaire est invalid
+	      			{{ invalidInputs }}
 	      		</h5>
 		        <form class="opac-form" id="login-form" method="post">
 		        	<div class="mx-auto mt-2 d-flex justify-content-between" style="width: 93%">
                         <div class="mx-auto w-100">
                             <label for="log_add" class="m-0 p-0">Adresse E-mail</label>
-                            <input type="text" class="m-0 p-0 form-control p-1" :class="getInvalids('add', invalidInputs) + '' + emailIsValid()" name="add" id="log_add" placeholder="Veuillez renseigner votre adresse électronique" v-model="valideAdd">
-                            <i class="h5-title" v-if="invalidInputs !== undefined && invalidInputs.name !== undefined"> {{ invalidInputs.name[0] }} </i>
+                            <input type="text" class="m-0 p-0 form-control p-1" :class="emailIsValid()" name="add" id="log_add" placeholder="Veuillez renseigner votre adresse électronique" v-model="valideAdd">
                             <i class="h5-title" v-if="wrongAdd"> L'adresse que vous renseigner est invalide </i>
                         </div>
                     </div>
                     <div class="mx-auto mt-2 d-flex justify-content-between" style="width: 93%">
                         <div class="mx-auto w-100">
                             <label for="log_pwd" class="m-0 p-0">Mot de Passe</label>
-                            <input type="password" class="m-0 p-0 form-control p-1" :class="getInvalids('pwd', invalidInputs)" name="pwd" id="log_pwd" placeholder="Veuillez renseigner votre mot de passe" v-model="password">
-                            <i class="h5-title" v-if="invalidInputs !== undefined && invalidInputs.name !== undefined"> {{ invalidInputs.name[0] }} </i>
+                            <input type="password" class="m-0 p-0 form-control p-1" :class="getInvalids(invalidInputs)" name="pwd" id="log_pwd" placeholder="Veuillez renseigner votre mot de passe" v-model="password">
                         </div>
                         
                     </div>
@@ -34,6 +33,17 @@
 			    <div class="mx-auto mt-2 p-1 pb-2 buttons-div" style="width: 93%">
 			        <button type="button" class="btn btn-primary w-25 float-right" @click="login()">Se connecter</button>
 			        <button type="button" class="btn btn-secondary w-25 mx-1 float-right" data-dismiss="modal">Annuler</button>
+			    </div>
+			    <div class="mx-auto mt-2 p-1 pb-2 div-success" style="width: 85%; display: none">
+			    	<div class="d-flex justify-content-center w-100 p-2 my-1">
+			    		<div class="text-center">
+			    			<span class="fa fa-user text-primary" style="font-size: 30px"></span>
+			    			<h4 class="d-block"></h4>
+			    		</div>
+			    	</div>
+			        <div class="w-75 mx-auto d-flex justify-content-center">
+			        	<button type="button" class="btn w-50 bg-transparent border shadow mx-1 px-1" data-dismiss="modal">Terminer</button>
+			        </div>
 			    </div>
 	    	</div>
 	  	</div>
@@ -67,9 +77,9 @@
 				}
 				return $tab
 			},
-			getInvalids(input, invalids = this.invalidInputs){
+			getInvalids(invalids = this.invalidInputs){
 
-				if(invalids !== undefined && invalids[input] !== undefined){
+				if(invalids !== undefined){
 					return 'is-invalid'
 				}
 				else{
@@ -95,13 +105,15 @@
 			},
 
 			login(){
-				this.$store.dispatch('login', {email: this.valideAdd, password: this.password})
+				if(!this.wrongAdd){
+					this.$store.dispatch('login', {email: this.valideAdd, password: this.password})
+				}
 			}
 			
 		},
 
 		computed: mapState([
-            'newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'users', 'addresses', 'loginNotif'
+            'newTeacher', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'users', 'addresses', 'loginNotif', 'noUser'
         ]),
 
 

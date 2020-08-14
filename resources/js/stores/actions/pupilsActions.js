@@ -14,6 +14,7 @@ const pupils_actions = {
                store.commit('ALERT_MAKER', "L'opération a échoué: Echec de connexion au serveur! Veuillez réessayer!")
             })
     },
+    
     updateAPupilData: (store, inputs) => {
         axios.put('/admin/director/pupilsm/update/update&perso/id=' + inputs.pupil.id, {
             token: inputs.token,
@@ -31,17 +32,16 @@ const pupils_actions = {
                 store.commit('UPDATE_TARGET_PUPIL', {pupil: response.data.pupilEdited, dataFMT: {classe: response.data.classeFMT, birth: response.data.birthFMT, fist: response.data.firstName, last: response.data.lastName}})
                 store.commit('SUCCESSED', 'Mis à jour des données réussie')
                 
-                $('#exampleModal .buttons-div').hide('size', function(){
-                    $('#exampleModal form').hide('fade', function(){
-                        $('#exampleModal').animate({
+                $('#editPupilPersoModal .buttons-div').hide('size', function(){
+                    $('#editPupilPersoModal form').hide('fade', function(){
+                        $('#editPupilPersoModal').animate({
                             top: '150'
                         }, function(){
-                            $('#exampleModal .div-success').show('fade', 200)
-                            $('#exampleModal .div-success h4').text('Mise à jour reussi')
+                            $('#editPupilPersoModal .div-success').show('fade', 200)
+                            $('#editPupilPersoModal .div-success h4').text('Mise à jour reussi')
                         })
                         
                     })
-                    
                 })
                 
             }

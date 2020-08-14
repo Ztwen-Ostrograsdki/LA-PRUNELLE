@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Classe;
+use App\Models\Mark;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -57,6 +58,11 @@ class Subject extends Model
     public function code()
     {
         return mb_substr($this->name, 0, 4);
+    }
+
+    public function marks()
+    {
+        return $this->hasMany(Mark::class);
     }
 
     

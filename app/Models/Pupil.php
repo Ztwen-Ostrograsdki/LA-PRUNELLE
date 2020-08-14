@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Helpers\TrashedGet;
 use App\Models\Classe;
+use App\Models\Mark;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,6 +23,11 @@ class Pupil extends Model
     public function classe()
     {
     	return $this->belongsTo(Classe::class);
+    }
+
+    public function marks()
+    {
+        return $this->hasMany(Mark::class);
     }
 
     public function getSexe()

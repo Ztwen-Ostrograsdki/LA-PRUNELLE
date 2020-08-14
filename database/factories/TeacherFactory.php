@@ -15,7 +15,7 @@ $factory->define(Teacher::class, function (Faker $faker) {
     }
     return [
         'name' => trim(mb_ereg_replace('/Mr\.|M\.|Mrs.|Prof\.|Sr\.|Me\.|Dr\.|Pr\.|Mlle\.|Mme.|Ms\./', '', $faker->name)),
-        'level' => 'primary',
+        'level' => 'secondary',
         'year' => ZtwenFaker::year(),
         'month' => ZtwenFaker::month(),
         'residence' => ZtwenFaker::residence(),

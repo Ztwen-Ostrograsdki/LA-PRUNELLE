@@ -37,7 +37,7 @@ class ZtwenFaker{
         ];
 
         $month = $months[rand(0, 11)];
-        return ($month, 0, 3);
+        return $month;
 	}
 
 	public static function level()

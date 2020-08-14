@@ -11,7 +11,7 @@
 			</div>
 		</transition>
 		<div class="profil-school d-none d-lg-inline-block">
-			<h3>COMPLEXE SCOLAIRE MON ECOLE</h3>
+			<h3>COMPLEXE SCOLAIRE LA PRUNELLE</h3>
 			<h3 align="center" class="position-relative" style="top: 10px; font-size: 4rem">{{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}</h3>
 		</div>
 		<div class="profil-admin d-lg-inline-block d-sm-flex d-md-flex justify-content-sm-around justify-content-md-around">

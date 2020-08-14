@@ -24,8 +24,13 @@ const pupils_mutations = {
 
     GET_A_PUPIL_DATA: (state, data) => {
         state.editedPupil = data.p
+        state.editedPupilSubjects = data.subjects
         state.token = data.token
+        state.targetPupilClasseFMT = data.classeFMT
         
+    },
+    SET_EDITED_PUPIL_SUBJECTS: (state, data) =>{
+        state.editedPupilSubjects = data.subjects
     },
     UPDATE_EDITED_PUPIL: (state, pupil) => {
         state.editedPupil = pupil

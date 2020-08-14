@@ -125,6 +125,8 @@ class PupilsController extends Controller
         $token = csrf_token();
         $p = Pupil::withTrashed('deleted_at')->whereId($id)->firstOrFail();
 
+        $subjects = $p->classe->subjects;
+
         $classeFMT = $p->classe->getFormattedClasseName();
         $birthday = ModelHelper::birthFormattor($p, 0);
 
@@ -136,7 +138,17 @@ class PupilsController extends Controller
 
         $classeName = $p->classe->name;
 
-        return response()->json(['p' => $p, 'token' => $token, 'classeFMT' => $classeFMT, 'birthFMT' => $birthday, 'classeName' => $classeName, 'firstName' => $firstName, 'lastName' => $lastName]);
+        return response()->json(['p' => $p, 'subjects' => $subjects, 'token' => $token, 'classeFMT' => $classeFMT, 'birthFMT' => $birthday, 'classeName' => $classeName, 'firstName' => $firstName, 'lastName' => $lastName]);
+    }
+
+    /**
+     * Use to get a data of a pupil
+     * @param  int    $id [description]
+     * @return a json response to a view
+     */
+    public function showPupilMarks(int $id)
+    {
+        return view('directors.pupils.marks.index');
     }
 
 

@@ -24,11 +24,16 @@ let listing_pupils = Vue.component('listing-component-pupils', require('./compon
 let pupils_redList = Vue.component('pupils-redList', require('./components/pupils/RedListComponent.vue').default)
 
 let pupils_profil = Vue.component('profil-component-pupils', require('./components/pupils/ProfilComponent.vue').default)
-let pupils_profil_main = Vue.component('pupil-profil-main', require('./components/pupils/layouts/MainProfilComponent.vue').default)
-let pupils_perso_data = Vue.component('pupil-perso-data', require('./components/pupils/layouts/PersonalBoxComponent.vue').default)
-let pupils_parents_data = Vue.component('pupil-parents-data', require('./components/pupils/layouts/ParentalBoxComponent.vue').default)
-let pupils_marks_data = Vue.component('pupil-marks-data', require('./components/pupils/layouts/MarksBoxComponent.vue').default)
-let pupils_profil_box = Vue.component('profil-pupil-box', require('./components/pupils/layouts/ProfilBoxComponent.vue').default)
+let pupils_profil_main = Vue.component('pupil-profil-main', require('./components/pupils/ProfilLayouts/MainProfilComponent.vue').default)
+let pupils_perso_data = Vue.component('pupil-perso-data', require('./components/pupils/ProfilLayouts/PersonalBoxComponent.vue').default)
+let pupils_parents_data = Vue.component('pupil-parents-data', require('./components/pupils/ProfilLayouts/ParentalBoxComponent.vue').default)
+let pupils_marks_data = Vue.component('pupil-marks-data', require('./components/pupils/ProfilLayouts/MarksBoxComponent.vue').default)
+let pupils_profil_box = Vue.component('profil-pupil-box', require('./components/pupils/ProfilLayouts/HomeProfilComponent.vue').default)
+		//PUPILS MARKS
+let pupils_marks_home = Vue.component('marks-home', require('./components/pupils/marks/HomeComponent.vue').default)
+let pupils_marks_table = Vue.component('marks-table', require('./components/pupils/marks/layouts/MarksTableComponent.vue').default)
+
+
 
 //HOMES
 let home = Vue.component('home-public', require('./components/home/HomeComponent.vue').default)
@@ -57,11 +62,11 @@ let listing_teachers = Vue.component('listing-component-teachers', require('./co
 let teachers_redList = Vue.component('teachers-redList', require('./components/teachers/RedListComponent.vue').default)
 
 let teachers_profil = Vue.component('profil-component-teachers', require('./components/teachers/ProfilComponent.vue').default)
-let teachers_profil_main = Vue.component('teacher-profil-main', require('./components/teachers/layouts/MainProfilComponent.vue').default)
-let teachers_perso_data = Vue.component('teacher-perso-data', require('./components/teachers/layouts/PersonalBoxComponent.vue').default)
-let teachers_parents_data = Vue.component('teacher-parents-data', require('./components/teachers/layouts/ParentalBoxComponent.vue').default)
-let teachers_marks_data = Vue.component('teacher-marks-data', require('./components/teachers/layouts/MarksBoxComponent.vue').default)
-let teachers_profil_box = Vue.component('profil-teacher-box', require('./components/teachers/layouts/ProfilBoxComponent.vue').default)
+let teachers_profil_main = Vue.component('teacher-profil-main', require('./components/teachers/ProfilLayouts/MainProfilComponent.vue').default)
+let teachers_perso_data = Vue.component('teacher-perso-data', require('./components/teachers/ProfilLayouts/PersonalBoxComponent.vue').default)
+let teachers_parents_data = Vue.component('teacher-parents-data', require('./components/teachers/ProfilLayouts/ParentalBoxComponent.vue').default)
+let teachers_marks_data = Vue.component('teacher-marks-data', require('./components/teachers/ProfilLayouts/MarksBoxComponent.vue').default)
+let teachers_profil_box = Vue.component('profil-teacher-box', require('./components/teachers/ProfilLayouts/ProfilBoxComponent.vue').default)
 
 
 const routes = [
@@ -91,7 +96,13 @@ const routes = [
 				component: pupils_profil,
 				name: 'pupilsProfil',
 				store
-
+				
+			},
+			{
+				path: '/admin/director/pupilsm/:id/marks/index',
+				component: pupils_marks_home,
+				name: 'pupilsMarks',
+				store,
 			},
 			{
 				path: '/admin/director/docPDF/getApath',

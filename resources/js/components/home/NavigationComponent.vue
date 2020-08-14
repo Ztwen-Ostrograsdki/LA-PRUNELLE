@@ -87,6 +87,11 @@
 			},
 
             getUsers() {
+                $('#loginModal .div-success').hide('slide', 'up')
+                $('#loginModal .div-success h4').text('')
+                $('#loginModal form').show('fade')
+                $('#loginModal .buttons-div').show('fade')
+
                 this.$store.dispatch('getUsers')
             }
 		},

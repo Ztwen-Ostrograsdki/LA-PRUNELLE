@@ -56,10 +56,10 @@
 						</div>
 					</div>
 					<hr class="m-0" style="background-color: white">
-					<a href="#" class="link-white mt-1 d-flex justify-content-between">
+					<router-link to="/admin/director/pupilsm" class="link-white mt-1 d-flex justify-content-between">
 						<span class="fa fa-book fa-2x" ></span>
 						<span class="fa fa-2x">{{ pl }}</span>
-					</a>
+	                </router-link>
 				</div>
 				<div class="col-2 border">
 					<div class="py-2" id="users-tag" style="display: none; width: 0; opacity: 0">

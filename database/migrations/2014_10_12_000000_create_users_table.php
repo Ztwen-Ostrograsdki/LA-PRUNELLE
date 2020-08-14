@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-            $table->enum('role', $roles)->default('user');
+            $table->enum('role', ['user', 'admin', 'teacher', 'parent', 'master', 'superAdmin', 'admin-teacher', 'admin-teacher-parent', 'admin-parent', 'teacher-parent', 'superAdmin-parent', 'superAdmin-teacher', 'superAdmin-teacher-parent'])->default('user');
 
         });
     }

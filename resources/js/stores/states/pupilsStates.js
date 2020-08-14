@@ -20,6 +20,7 @@ const pupils_states = {
     },
 
     editedPupil : {},
+    editedPupilSubjects: [],
     primaryPupils : {},
     pupils: {},
     pupilsAll: [], 
@@ -27,7 +28,13 @@ const pupils_states = {
     pupilsBlockeds: {},
     PSBlockeds: [],
     PPBlockeds: [],
-    alertPupilsSearch: 'Tous les apprenants'
+    alertPupilsSearch: 'Tous les apprenants',
+
+    marks: {
+        first: {},
+        second: {},
+        third: {},
+    }
 }
 
 export default pupils_states

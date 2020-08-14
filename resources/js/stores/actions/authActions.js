@@ -8,8 +8,23 @@ const auth_actions = {
 	login: (state, user) => {
         axios.post('login/user&get&auth', user)
 		.then(response => {
-			console.log(response.data)
-		})      
+			if(response.data.invalidInputs == undefined){
+				state.commit('RESET_INVALID_INPUTS')
+				state.commit('SET_USER', response.data)
+				$('#loginModal .buttons-div').hide('size', function(){
+	                $('#loginModal form').hide('fade', function(){
+		                $('#loginModal .div-success').show('fade', 200)
+		                $('#loginModal .div-success h4').text('Vous êtes connecté')
+	                })
+	            })
+			}
+			else{
+                state.commit('INVALID_INPUTS', response.data.invalidInputs)
+            }
+		})
+		.catch(err => {
+			console.log(err)
+		})     
 	},  
 	getUsers: (state) => {
 		axios.post('/admin/director/master/get&all&users')
