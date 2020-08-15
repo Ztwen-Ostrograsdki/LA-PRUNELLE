@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\ValidatorsSpaces\PupilsValidators;
 use App\ModelHelper;
 use App\Models\Pupil;
+use App\Models\Subject;
 use App\Models\Teacher;
 use App\User;
 use Illuminate\Http\Request;
@@ -126,6 +127,9 @@ class PupilsController extends Controller
         $p = Pupil::withTrashed('deleted_at')->whereId($id)->firstOrFail();
 
         $subjects = $p->classe->subjects;
+        if ($p->level === "primary") {
+           $subjects = Subject::whereLevel('primary')->get();
+        }
 
         $classeFMT = $p->classe->getFormattedClasseName();
         $birthday = ModelHelper::birthFormattor($p, 0);

@@ -4,9 +4,9 @@
 			<table class="table-table table-striped w-100">
 				<transition name="fadelow" appear>
                     <thead>
-                        <th>Matières</th>
-                        <th>Interrogations</th>
-                        <th>Devoirs</th>
+                        <th class="border-right border-white">Matières</th>
+                        <th class="border-right border-white">Interrogations</th>
+                        <th class="border-right border-white">Devoirs</th>
                         <th>Moyenne</th>
                     </thead>
                 </transition>
@@ -18,6 +18,7 @@
                     			<table class="text-center w-100 text-white-50">
 	                    			<tbody class="w-100">
 	                    				<tr class="text-center w-100">
+	                    					<td class="text-center border-right border-white coef">Coef</td>
 	                    					<td class="text-center border-right border-white">Int 1</td>
 	                    					<td class="text-center border-right border-white">Int 2</td>
 	                    					<td class="text-center border-right border-white">Int 3</td>
@@ -38,7 +39,16 @@
 	                    			</tbody>
 	                    		</table>
                     		</td>
-                    		<td class="bg-linear-official-180">x</td>
+                    		<td class="bg-linear-official-180">
+                    			<table class="text-center w-100">
+	                    			<tbody class="w-100">
+	                    				<tr class="w-100">
+	                    					<td class="text-center border-right border-white text-warning">Moy Coef</td>
+	                    					<td class="text-success">Moy</td>
+	                    				</tr>
+	                    			</tbody>
+	                    		</table>
+                    		</td>
                     	</tr>
                     	<tr class="border-bottom border-white" v-for="subject in editedPupilSubjects">
                     		<td class="float-left pl-2">{{ subject.name }}</td>
@@ -46,6 +56,7 @@
                     			<table class="text-center w-100 text-white-50">
 	                    			<tbody class="w-100">
 	                    				<tr class="text-center w-100">
+	                    					<td class="text-center border-right border-white coef">2</td>
 	                    					<td class="text-center border-right border-white">10</td>
 	                    					<td class="text-center border-right border-white">11</td>
 	                    					<td class="text-center border-right border-white">14</td>
@@ -66,24 +77,39 @@
 	                    			</tbody>
 	                    		</table>
                     		</td>
-                    		<td>16.95</td>
+                    		<td>
+                    			<table class="text-center w-100">
+	                    			<tbody class="w-100">
+	                    				<tr class="w-100">
+	                    					<td class="text-center border-right border-white text-warning">45</td>
+	                    					<td class="text-success">13</td>
+	                    				</tr>
+	                    			</tbody>
+	                    		</table>
+                    		</td>
                     	</tr>
                     	
                     </tbody>
                 </transition>
 			</table>
 		</div>
-		<hr class="m-0 my-1 p-0 bg-primary">
-		<hr class="m-0 my-1 p-0 bg-success">
-		<div class="d-flex w-100 m-0 p-0 my-2 justify-content-around text-white-50">
-			<div class="border border-white" style="width: 33%;">
-				<h5 class="text-center">Trimestre 1</h5>
+		
+		<div class="d-flex flex-column w-100 m-0 p-0 my-2">
+			<div class="d-flex w-100 m-0 p-0 my-2 justify-content-around text-white-50 trimestre">
+				<div class="bg-linear-official-50" style="width: 33%;">
+					<trimestre :trimestreName="'Trimestre 1'" :border="'border-success'"></trimestre>
+				</div>
+				<div class="bg-linear-official-50" style="width: 33%;">
+					<trimestre :trimestreName="'Trimestre 2'" :border="'border-primary'"></trimestre>
+				</div>
+				<div class="bg-linear-official-50" style="width: 33%;">
+					<trimestre :trimestreName="'Trimestre 3'" :border="'border-warning'"></trimestre>
+				</div>
 			</div>
-			<div class="border border-white" style="width: 33%;">
-				<h5>Trimestre 2</h5>
-			</div>
-			<div class="border border-white" style="width: 33%;">
-				<h5>Trimestre 3</h5>
+			<div class="mx-auto mt-1 row w-100">
+				<div class="border border-white mx-auto box-color-blue col-10 py-2">
+					<trimestre-general></trimestre-general>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -110,6 +136,15 @@
 
 <style>
 	.marks-td tr table tr td{
-		width: 16.66%;
+		width: 15%;
+	}
+	.marks-td tr table tr td.coef{
+		width: 10% !important;
+	}
+
+	.trimestre h5{
+		font-size: 10px;
+		margin: 0px;
+		padding: 2;
 	}
 </style>

@@ -32,6 +32,8 @@ let pupils_profil_box = Vue.component('profil-pupil-box', require('./components/
 		//PUPILS MARKS
 let pupils_marks_home = Vue.component('marks-home', require('./components/pupils/marks/HomeComponent.vue').default)
 let pupils_marks_table = Vue.component('marks-table', require('./components/pupils/marks/layouts/MarksTableComponent.vue').default)
+let pupils_marks_trimestre = Vue.component('trimestre', require('./components/pupils/marks/layouts/TrimestreTableComponent.vue').default)
+let pupils_marks_general = Vue.component('trimestre-general', require('./components/pupils/marks/layouts/TrimestreGeneralTableComponent.vue').default)
 
 
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="container-profil bg-linear-official-180 mx-1 p-0">
+	<div class="container-profil bg-linear-official-180 mx-1 p-0 border">
 		<div id="text-profil-container-opac">
 			<h3 class="text-profil-opac mx-auto text-center">
 
@@ -16,9 +16,14 @@
 	                <span>
 	                	<span class="text-white-50">Nom et Prénoms :</span> {{ editedPupil.name }}
 	                </span> 
-	                <span>
-	                	<span class="text-white-50">Classe :</span> {{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}
-	                </span>
+	                <div class="d-flex justify-content-between">
+	                	<div class="mr-2">
+	                		<span class="text-white-50">Classe :</span> {{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}
+	                	</div>
+	                	<div class="ml-2" v-if="editedPupil.level == 'primary'">
+	                		<span> <span class="text-white-50">Maître: </span>{{ 'Mr TOGAN Martin' }}</span>
+	                	</div>
+	                </div>
 	                <span>
 	                	<span class="text-white-50">Année Scolaire:</span> 2020 - 2021
 	                </span>
@@ -27,9 +32,9 @@
         </div>
 		<div class="d-flex w-100 my-1 py-1 justify-content-between">
             <div class="mx-1 my-0">
-                <span class="btn btn-primary text-white-50">Trimestre 1</span>
-                <span class="btn btn-primary text-white-50">Trimestre 2</span>
-                <span class="btn btn-primary text-white-50">Trimestre 3</span>
+                <span class="btn btn-primary text-white-50 py-1">Trimestre 1</span>
+                <span class="btn btn-primary text-white-50 py-1">Trimestre 2</span>
+                <span class="btn btn-primary text-white-50 py-1">Trimestre 3</span>
             </div>
             <div class="mx-1 d-flex justify-content-between font-italic">
             	<div class="mx-2">

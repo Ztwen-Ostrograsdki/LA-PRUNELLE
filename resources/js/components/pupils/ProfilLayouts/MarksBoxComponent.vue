@@ -25,7 +25,7 @@
 			</tr>
 		</table>
 		<span>
-			<router-link :to="'/admin/director/pupilsm/' + 2 + '/marks/index'" class="btn btn-news my-1 p-1 float-right">Mettre à jour
+			<router-link :to="'/admin/director/pupilsm/' + this.$route.params.id + '/marks/index'" class="btn btn-news my-1 p-1 float-right">Mettre à jour
             </router-link>
 		</span>
 	</div>
