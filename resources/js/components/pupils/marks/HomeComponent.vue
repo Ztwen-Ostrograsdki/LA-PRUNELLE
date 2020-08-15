@@ -18,7 +18,9 @@
 	                </span> 
 	                <div class="d-flex justify-content-between">
 	                	<div class="mr-2">
-	                		<span class="text-white-50">Classe :</span> {{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}
+	                		<router-link :to="{name: 'classesProfil', params: {id: getClasseID()}}"   class="card-link text-white-50 d-inline-block">
+	                			<span class="text-white-50">Classe :</span> {{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}
+	                		</router-link>
 	                	</div>
 	                	<div class="ml-2" v-if="editedPupil.level == 'primary'">
 	                		<span> <span class="text-white-50">Maître: </span>{{ 'Mr TOGAN Martin' }}</span>
@@ -61,7 +63,7 @@
 	export default{
 		data() {
             return {
-
+            	classeID: ''
             }   
         },
 
@@ -76,6 +78,10 @@
 
 
 		methods: {
+
+			getClasseID(){
+				return this.classeID = this.editedPupil.classe.id
+			}
 			
 		},
 		computed: mapState([

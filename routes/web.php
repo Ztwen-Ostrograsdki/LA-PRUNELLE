@@ -47,6 +47,11 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::post('master/logout&user', 'Master\SuperAdminController@logout');
 		Route::resource('master', 'Master\SuperAdminController')->middleware('onlySuperAdmin');
 
+		//CLASSES
+		Route::get('classesm/DATA&for&classes', 'Master\ClassesController@classesDataSender');
+		Route::get('classesm/get&classe&data&credentials/id={id}', 'Master\ClassesController@getAClasseData');
+		Route::resource('classesm', 'Master\ClassesController')->middleware('onlySuperAdmin');
+
 		//PUPILS
 		Route::get('pupilsm/DATA&for&pupils', 'Master\PupilsController@pupilsDataSender')->name('sender');
 		Route::get('pupilsm/get&classe&of&pupil&with&data&credentials/id={id}', 'Master\PupilsController@getAPupilData');

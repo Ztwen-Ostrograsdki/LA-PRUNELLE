@@ -27,7 +27,6 @@ const pupils_mutations = {
         state.editedPupilSubjects = data.subjects
         state.token = data.token
         state.targetPupilClasseFMT = data.classeFMT
-        console.log(data)
         
     },
     SET_EDITED_PUPIL_SUBJECTS: (state, data) =>{

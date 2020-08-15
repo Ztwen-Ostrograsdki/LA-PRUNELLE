@@ -60,6 +60,14 @@ class SuperAdminController extends Controller
         $ts = Teacher::whereLevel('secondary')->count();
         $tp = Teacher::whereLevel('primary')->count();
 
+        $classes = Classe::withTrashed('deleted_at')->orderBy('level', 'asc')->get();
+        $classesSecondary = Classe::whereLevel('secondary')->orderBy('name', 'asc')->get();
+        $classesPrimary = Classe::whereLevel('primary')->orderBy('name', 'asc')->get();
+
+        $classesBlockeds = [];
+        $classesPrimaryBlockeds = [];
+        $classesSecondaryBlockeds = [];
+
         $p = Pupil::all()->count();
         $ps = Pupil::whereLevel('secondary')->count();
         $pp = Pupil::whereLevel('primary')->count();
@@ -77,6 +85,12 @@ class SuperAdminController extends Controller
             'psl' => $ps, 
             'ppl' => $pp, 
             'ul' => $u, 
+            'classes' => $classes,
+            'classesPrimary' => $classesPrimary,
+            'classesSecondary' => $classesSecondary,
+            'classesBlockeds' => $classesBlockeds,
+            'classesSecondaryBlockeds' => $classesSecondaryBlockeds,
+            'classesPrimaryBlockeds' => $classesPrimaryBlockeds,
             'pupilsblockedLength' => $pupilsBlockedsLength, 
             'PBSLength' => $PBSLength, 
             'PBPLength' => $PBPLength

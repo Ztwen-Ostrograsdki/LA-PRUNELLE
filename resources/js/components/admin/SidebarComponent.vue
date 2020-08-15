@@ -155,6 +155,14 @@
         opacity: 0;
         transform: translateY(-30px); 
     }
+    .fadeR-enter-active, .fadeR-leave-active{
+        transition: opacity 1s, transform 0.5s;
+    }
+
+    .fadeR-enter, .fadeR-leave-active{
+        opacity: 0;
+        transform: translateX(-30px); 
+    }
     .fadelist-enter-active, .fadelist-leave-active{
         transition: opacity 0.5s;
     }

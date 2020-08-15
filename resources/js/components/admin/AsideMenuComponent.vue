@@ -61,6 +61,21 @@
 	                <li class="subitem3"><a href="#">Supérieur</a></li>
 	            </ul>
 	        </li>
+	        <li class="item4">
+	            <a href="#">
+	                <i class="fa fa-university float-left mt-1 mr-3" style="font-size: 25px"></i>Classes 
+	                <span id="span-counter">{{ cl }}</span>
+	            </a>
+	            <ul>
+	                <li class="subitem1">
+	                    <router-link to="/admin/director/classesm">Toutes les classes
+	                    </router-link>
+	                </li>
+	                <li class="subitem1"><a href="#">Primaires <i class="float-right mr-3">({{ pcl }})</i></a></li>
+	                <li class="subitem2"><a href="#">Secondaires <i class="float-right mr-3">({{ scl }})</i></a></li>
+	                <li class="subitem3"><a href="#">Supérieur</a></li>
+	            </ul>
+	        </li>
 	        <li class="item5">
 	            <a href="#">
 	                <i class="fa fa-money float-left mt-1 mr-3" style="font-size: 25px"></i>Gestion - Finances 
@@ -100,7 +115,7 @@
 		},
 
 		computed: mapState([
-			'pl', 'tl', 'ul', 'psl', 'ppl', 'tpl', 'tsl', 'pupilsBlockedsLength', 'user', 'admin'
+			'pl', 'tl', 'ul', 'psl', 'ppl', 'cl', 'pcl', 'scl', 'CBSLength', 'CBCLength', 'CBLength', 'tpl', 'tsl', 'pupilsBlockedsLength', 'user', 'admin'
 		])
        
 

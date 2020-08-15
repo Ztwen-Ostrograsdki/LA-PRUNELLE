@@ -1,5 +1,6 @@
 import pupils_mutations from './pupilsMutations.js'
 import teachers_mutations from './teachersMutations.js'
+import classes_mutations from './classesMutations.js'
 import auth_mutations from './authMutations.js'
 
 const default_mutations = {
@@ -16,6 +17,13 @@ const default_mutations = {
 		state.tl = data.tl
 		state.tsl = data.tsl
 		state.tpl = data.tpl
+
+		state.cl = data.classes.length
+		state.pcl = data.classesPrimary.length
+		state.scl = data.classesSecondary.length
+		state.CBLength = data.classesBlockeds.length
+		state.CBPLength = data.classesPrimaryBlockeds.length
+		state.CBSLength = data.classesSecondaryBlockeds.length
 
 		state.pupilsBlockedsLength = data.pupilsblockedLength
 		state.PBPLength = data.PBPLength
@@ -72,7 +80,7 @@ const default_mutations = {
 }
 
 const mutations = {
-	...pupils_mutations, ...teachers_mutations, ...auth_mutations, ...default_mutations
+	...pupils_mutations, ...teachers_mutations, ...classes_mutations, ...auth_mutations, ...default_mutations
 }
 
 export default mutations

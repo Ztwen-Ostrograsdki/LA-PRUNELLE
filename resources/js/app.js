@@ -35,6 +35,12 @@ let pupils_marks_table = Vue.component('marks-table', require('./components/pupi
 let pupils_marks_trimestre = Vue.component('trimestre', require('./components/pupils/marks/layouts/TrimestreTableComponent.vue').default)
 let pupils_marks_general = Vue.component('trimestre-general', require('./components/pupils/marks/layouts/TrimestreGeneralTableComponent.vue').default)
 
+//CLASSES
+let classes_home = Vue.component('classes-home', require('./components/classes/HomeComponent.vue').default)
+let listing_classes = Vue.component('listing-component-classes', require('./components/classes/ListingComponent.vue').default)
+let classe_profil = Vue.component('profil-classe', require('./components/classes/ProfilComponent.vue').default)
+let classe_listing = Vue.component('listing-classe', require('./components/classes/layouts/ListingForAClasseComponent.vue').default)
+let listing_pupils_component = Vue.component('listing-pupils', require('./components/admin/layouts/ListingPupilsComponent.vue').default)
 
 
 //HOMES
@@ -141,6 +147,22 @@ const routes = [
 			
 		]
 	},
+	{
+		path: '/admin/director/classesm',
+		component: classes_home,
+		name: 'classesIndex',
+		children: [
+			{
+				path: '/admin/director/classesm',
+				component: listing_classes,
+			},
+			{
+				path: '/admin/director/classesm/:id',
+				component: classe_profil,
+				name: 'classesProfil'
+			}
+		]
+	}
 ]
 
 const router = new VueRouter({mode: 'history', routes})

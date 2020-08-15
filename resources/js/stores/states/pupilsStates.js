@@ -19,7 +19,9 @@ const pupils_states = {
         year: (new Date).getFullYear(),
     },
 
-    editedPupil : {},
+    editedPupil : {
+        classe: {}
+    },
     editedPupilSubjects: [],
     primaryPupils : {},
     pupils: {},

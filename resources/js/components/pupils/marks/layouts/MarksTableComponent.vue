@@ -51,7 +51,12 @@
                     		</td>
                     	</tr>
                     	<tr class="border-bottom border-white" v-for="subject in editedPupilSubjects">
-                    		<td class="float-left pl-2">{{ subject.name }}</td>
+                    		<td class="d-flex justify-content-between pl-2 w-100">
+                    			<a class="w-75" href="#">
+                    				<span class="float-left">{{ subject.name }}</span>
+                    			</a>
+                    			<span class="fa fa-edit mr-3 text-white-50 mt-2" style="font-size: 9px" :title="'Editer les notes en ' + subject.name + ' de ' + editedPupil.name "></span>
+                    		</td>
                     		<td class="text-center border-right border-left border-white">
                     			<table class="text-center w-100 text-white-50">
 	                    			<tbody class="w-100">
