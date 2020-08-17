@@ -48,7 +48,7 @@ class PupilsController extends Controller
         $AllpupilsWithClasses = [];
         $PSBlockeds = [];
         $PPBlockeds = [];
-        $pupils = Pupil::withTrashed('deleted_at')->orderBy('name', 'asc')->get();
+        $pupils = Pupil::withTrashed(!'deleted_at')->orderBy('name', 'asc')->get();
         $u = User::all()->count();
         $t = Teacher::all()->count();
         $ts = Teacher::whereLevel('secondary')->count();

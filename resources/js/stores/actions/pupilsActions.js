@@ -31,6 +31,12 @@ const pupils_actions = {
                 store.commit('GET_PUPILS_DATA', response.data)
                 store.commit('UPDATE_TARGET_PUPIL', {pupil: response.data.pupilEdited, dataFMT: {classe: response.data.classeFMT, birth: response.data.birthFMT, fist: response.data.firstName, last: response.data.lastName}})
                 store.commit('SUCCESSED', 'Mis à jour des données réussie')
+
+                if(inputs.route !== undefined && inputs.route.name == "classesProfil"){
+                    let id = inputs.route.params.id
+                    store.dispatch('getAClasseData', id)
+                }
+                
                 
                 $('#editPupilPersoModal .buttons-div').hide('size', function(){
                     $('#editPupilPersoModal form').hide('fade', function(){

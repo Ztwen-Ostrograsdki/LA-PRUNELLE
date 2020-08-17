@@ -109,7 +109,9 @@
 			},
 
 			updateEdited(pupil, token){
-				this.$store.dispatch('updateAPupilData', {pupil, token})
+				let route = this.$route
+				
+				this.$store.dispatch('updateAPupilData', {pupil, token, route})
 			},
 			getYears(){
 				let $tab = []
@@ -133,7 +135,7 @@
 		},
 
 		computed: mapState([
-            'editedPupil', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'primaryClasses', 'secondaryClasses'
+            'editedPupil', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'primaryClasses', 'secondaryClasses', 'classeDomain'
         ]),
 
 

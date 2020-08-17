@@ -143,61 +143,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="w-100" style="min-height: 500px;">
-                        <table class="table-table table-striped w-100">
-                            <transition name="fadelow" appear>
-                                <thead>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Sexe</th>
-                                    <th>Naissance</th>
-                                    <th>Inscrit depuis</th>
-                                    <th>Classe</th>
-                                    <th colspan="1">Actions</th>
-                                </thead>
-                            </transition>
-                            <transition name="bodyfade" appear>
-                                <tbody>
-                                    <tr v-for="(pupil, k) in pupils" :key="pupil.id" class="border-bottom border-dark">
-                                        <td>
-                                            {{k+1}}
-                                        </td>
-                                        <td class="text-left">
-                                            <router-link :to="{name: 'pupilsProfil', params: {id: pupil.id}}"   class="card-link d-inline-block" >
-                                                <span  class="w-100 d-inline-block link-profiler"  @click="setEdited(pupil)">
-                                                    {{pupil.name}}
-                                                </span>
-                                            </router-link>
-                                            <a href="#" title="card-link Editer les informations de" class="fa fa-edit text-white-50 float-right" style="font-size: 10px!important; font-weight: 200!important" data-toggle="modal" data-target="#editPupilPersoModal" @click="getEdited(pupil)" @mouseout="closeProfiler()"></a>
-                                        </td>
-                                        <td>
-                                            {{gender(pupil.sexe)}}
-                                        </td>
-                                        <td>
-                                            {{birthday(pupil)}}
-                                        </td>
-                                        <td>
-                                            {{pupil.month + ' ' + pupil.year}}
-                                        </td>
-                                        <td>
-                                            <a class="card-link w-100 d-inline-block" href="">
-                                                {{pupilsArray[pupil.id].name}} <sup>{{pupilsArray[pupil.id].sup}}</sup>{{pupilsArray[pupil.id].idc}}
-                                            </a>
-                                        </td>
-                                        
-                                        <td>
-                                            <span class="d-inline-block w-100">
-                                                <button title="Voulez vous supprimer" class="px-1 btn bg-transparent w-100" @click="destroy(pupil)">
-                                                    <i class="fa fa-trash text-danger"></i>
-                                                </button>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </transition>
-                        </table>
-                    </div>
+                    <listing-pupils :isProfil="false" :thePupils="pupils" :redList="false"></listing-pupils>
+
                 </div>
             </div>
         </div>
@@ -240,7 +187,7 @@
                 return sexe == "male" ? 'M' : 'F'
             },
             filtrer(level){
-                this.$store.commit('SHOW_PUPILS_BY_LEVEL', level)
+                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, status: true})
             },
 
             birthday(user)

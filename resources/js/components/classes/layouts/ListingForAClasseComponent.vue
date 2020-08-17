@@ -69,7 +69,7 @@
 		        </div>
 		        </transition>
 			</div>
-			<listing-pupils :isProfil="true" :thePupils="targetedClasse.pupils"></listing-pupils>
+			<listing-pupils :redList="false" :isProfil="true" :thePupils="targetedClasse.pupils"></listing-pupils>
 		</div>
 	</div>
 </template>
@@ -106,7 +106,7 @@
             }   
         },
         created(){
-
+        	
         },
 
         methods :{
@@ -136,10 +136,9 @@
         	},
         	getClasse(){
         		return this.hidePanel == true ? '' : 'flex-column'
-        	}
-          
-           
+        	},
         },
+
 
         computed: mapState([
            'classes', 'classesAll', 'tl', 'alertClassesSearch', 'alert', 'message', 'months', 'successed', , 'errors', 'targetedClasse'

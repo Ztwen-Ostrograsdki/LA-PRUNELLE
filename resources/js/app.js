@@ -159,7 +159,8 @@ const routes = [
 			{
 				path: '/admin/director/classesm/:id',
 				component: classe_profil,
-				name: 'classesProfil'
+				name: 'classesProfil',
+				store
 			}
 		]
 	}

@@ -63,31 +63,31 @@ const pupils_mutations = {
     },
 
 
-	SHOW_PUPILS_BY_LEVEL: (state, level, notBlockedSpace = true) => {
-		if(notBlockedSpace == true){
-            if(level == 'secondary'){
+	SHOW_PUPILS_BY_LEVEL: (state, data) => {
+		if(data.notBlockedSpace == true){
+            if(data.level == 'secondary'){
                 state.pupils = state.secondaryPupils
                 state.alertPupilsSearch = "Les eleves du secondaire"
             }
-            else if (level == 'primary') {
+            else if (data.level == 'primary') {
                 state.pupils = state.primaryPupils
                 state.alertPupilsSearch = "Les eleves du primaire"
             }
-            else if (level == 'all') {
+            else if (data.level == 'all') {
                 state.pupils = state.pupilsAll
                 state.alertPupilsSearch = "Tous les apprenants"  
             }
         }
         else{
-            if(level == 'secondary'){
+            if(data.level == 'secondary'){
                 state.pupilsBlockeds = state.PSBlockeds
-                state.alertPupilsSearch = "Les eleves du secondaire"
+                state.alertPupilsSearch = "Les eleves du secondaire red"
             }
-            else if (level == 'primary') {
+            else if (data.level == 'primary') {
                 state.pupilsBlockeds = state.PPBlockeds
                 state.alertPupilsSearch = "Les eleves du primaire"
             }
-            else if (level == 'all') {
+            else if (data.level == 'all') {
                 state.pupilsBlockeds = state.pupilsBlockedsAll
                 state.alertPupilsSearch = "Tous les apprenants"  
             }

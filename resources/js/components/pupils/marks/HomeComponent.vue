@@ -18,7 +18,7 @@
 	                </span> 
 	                <div class="d-flex justify-content-between">
 	                	<div class="mr-2">
-	                		<router-link :to="{name: 'classesProfil', params: {id: getClasseID()}}"   class="card-link text-white-50 d-inline-block">
+	                		<router-link :to="{name: 'classesProfil', params: {id: editedPupil.classe_id}}"   class="card-link text-white-50 d-inline-block">
 	                			<span class="text-white-50">Classe :</span> {{targetPupilClasseFMT.name}}<sup>{{ targetPupilClasseFMT.sup }}</sup> {{ targetPupilClasseFMT.idc }}
 	                		</router-link>
 	                	</div>
@@ -63,7 +63,7 @@
 	export default{
 		data() {
             return {
-            	classeID: ''
+            	
             }   
         },
 
@@ -71,6 +71,7 @@
         	axios.get('/admin/director/pupilsm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id)
                 .then(response => {
                     this.$store.commit('GET_A_PUPIL_DATA', response.data)
+
                 }
             )
         },
@@ -79,10 +80,6 @@
 
 		methods: {
 
-			getClasseID(){
-				return this.classeID = this.editedPupil.classe.id
-			}
-			
 		},
 		computed: mapState([
           	'targetPupilLastName', 'targetPupilFirstName', 'targetPupilClasseFMT', 'targetPupilBirthFMT', 'marks', 'editedPupilSubjects', 'editedPupil'

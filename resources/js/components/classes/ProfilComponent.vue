@@ -18,9 +18,10 @@
         created(){
             this.$store.dispatch('getAClasseData', this.$route.params.id)
         },
+        
 
         computed: mapState([
-            'allClasses', 'successed', 'invalidInputs', 'errors', 'targetedClasse',
+            'allClasses', 'successed', 'invalidInputs', 'errors', 'targetedClasse'
         ])
 
 

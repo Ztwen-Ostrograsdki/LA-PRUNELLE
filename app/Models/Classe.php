@@ -132,11 +132,11 @@ class Classe extends Model
                 return $card;
             }
             else{
-                return ['name' => $name, 'sup' => "", 'idc' => ""];
+                return ['name' => $name, 'sup' => "", 'idc' => "", 'id' => $this->id];
             }
         }
         else{
-            return ['name' => $name, 'sup' => "", 'idc' => ""];
+            return ['name' => $name, 'sup' => "", 'idc' => "", 'id' => $this->id];
         }
     }
 

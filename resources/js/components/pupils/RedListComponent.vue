@@ -132,61 +132,8 @@
                     </div>
                     <h5 class="card-link mt-3 text-white-50 ml-3"> {{ alertPupilsSearch }}</h5>
                 </div>
-                <div class="w-100" style="min-height: 500px;">
-                    <table class="table-table table-striped w-100">
-                        <transition name="fadelow" appear>
-                            <thead>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Sexe</th>
-                                <th class="d-lg-block d-none">Naissance</th>
-                                <th>Inscrit depuis</th>
-                                <th>Classe</th>
-                                <th>Actions</th>
-                            </thead>
-                        </transition>
-                        <transition name="bodyfade" appear>
-                        <tbody>
-                            <tr v-for="(pupil, k) in pupilsBlockeds" :key="pupil.id" class="border-bottom border-dark">
-                                <td>
-                                    {{k+1}}
-                                </td>
-                                <td class="text-left">
-                                    <router-link :to="{name: 'pupilsProfil', params: {id: pupil.id}}"   class="card-link d-inline-block">
-                                        {{pupil.name}}
-                                    </router-link>
-                                    <a href="#" title="Editer les informations de" class="fa fa-edit text-white-50 float-right" style="font-size: 10px!important; font-weight: 200!important" data-toggle="modal" data-target="#exampleModal" @click="getEdited(pupil)"></a> 
-                                </td>
-                                <td>
-                                    {{gender(pupil.sexe)}}
-                                </td>
-                                <td class="d-lg-block d-none">
-                                    {{birthday(pupil)}}
-                                </td>
-                                <td>
-                                    {{pupil.month + ' ' + pupil.year}}
-                                </td>
-                                <td>
-                                    <a class="card-link w-100 d-inline-block" href="">
-                                        {{pupilsArray[pupil.id].name}} <sup>{{pupilsArray[pupil.id].sup}}</sup>{{pupilsArray[pupil.id].idc}}
-                                    </a>
-                                </td>
-                                
-                                <td>
-                                    <span class="d-flex justify-content-between w-100">
-                                        <button title="Restaurer cet élève" class="btn bg-secondary" style="width: 48%;" @click="restore(pupil)">
-                                            <i class="fa fa-recycle text-success"></i>
-                                        </button>
-                                        <button title="Supprimer définitement cet élève" class="btn bg-info"  style="width: 48%;">
-                                            <i class="fa fa-user-times text-danger"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </transition>
-                    </table>
-                </div>
+                <listing-pupils :isProfil="true" :thePupils="pupilsBlockeds" :redList="true"></listing-pupils>
+
             </div>
         </div>
     </div>
@@ -202,7 +149,7 @@
         data() {
             return {
                
-                months : [
+                selfMonths : [
                     "Janvier",
                     "Février",
                     "Mars",
@@ -230,7 +177,7 @@
             },
 
             filtrer(level){
-                this.$store.commit('SHOW_PUPILS_BY_LEVEL', level, false)
+                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, status: false})
             },
 
             birthday(user)
@@ -238,7 +185,7 @@
                 let date = user.birth
                 let parts = (date.split("-")).reverse()
                 let day = parts[0]
-                let m = (this.months[parts[1] - 1]).length > 5 ? (this.months[parts[1] - 1]).substring(0, 3) : this.months[parts[1] - 1]
+                let m = (this.selfMonths[parts[1] - 1]).length > 5 ? (this.selfMonths[parts[1] - 1]).substring(0, 3) : this.selfMonths[parts[1] - 1]
                 let year = parts[2]
 
                 return day + " " + m + " " + year

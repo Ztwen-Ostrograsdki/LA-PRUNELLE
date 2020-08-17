@@ -9,6 +9,10 @@
 	import { mapState } from 'vuex'
 	export default {
 
+		created(){
+			
+		},
+
 		computed: mapState([
            'errors', 'pupilsArray'
         ])

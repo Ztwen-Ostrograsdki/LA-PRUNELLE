@@ -71,8 +71,8 @@ class TeachersController extends Controller
             $classesConcerned = $teacher->classesConcernedByThisTeacher(); //Classes pouvant recevoir les cours de l'enseignant
             $classesRefused = $teacher->classesConcernedByThisTeacherButNot();
 
-            $data['classesConcerned' ] = $classesConcerned;
-            $data['classesRefused' ] = $classesRefused;
+            $data['classesConcerned'] = $classesConcerned;
+            $data['classesRefused'] = $classesRefused;
         }
         else{
             $classesC = Classe::whereLevel('primary')->get();
@@ -131,7 +131,7 @@ class TeachersController extends Controller
 
         foreach ($teachers as $teacher) {
             if ($teacher->level == 'secondary') {
-                $AllTeachersWithSubject[$teacher->id] = $teacher->subject->name;
+                $AllTeachersWithSubject[$teacher->id] = $teacher->subject;
                 if ($teacher->classes->count() > 0) {
                     $classes = [];
                     foreach ($teacher->classes as $classe) {

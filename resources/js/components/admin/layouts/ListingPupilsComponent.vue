@@ -39,9 +39,9 @@
                                 {{pupil.month + ' ' + pupil.year}}
                             </td>
                             <td v-if="!isProfil">
-                                <a class="card-link w-100 d-inline-block" href="">
-                                    {{pupilsArray[pupil.id].name}} <sup>{{pupilsArray[pupil.id].sup}}</sup>{{pupilsArray[pupil.id].idc}}
-                                </a>
+                            	<router-link class="card-link w-100 d-inline-block" :to="{name: 'classesProfil', params: {id: pupil.classe_id}}">
+                                    <span>{{pupilsArray[pupil.id].name}} <sup>{{pupilsArray[pupil.id].sup}}</sup>{{pupilsArray[pupil.id].idc}}</span>
+                                </router-link>
                             </td>
                             <td v-if="isProfil">
                             	N
@@ -49,10 +49,20 @@
                             <td v-if="isProfil">
                             	15
                             </td>
-                            <td>
+                            <td v-if="!redList">
                                 <span class="d-inline-block w-100">
                                     <button title="Voulez vous supprimer" class="px-1 btn bg-transparent w-100" @click="destroy(pupil)">
                                         <i class="fa fa-trash text-danger"></i>
+                                    </button>
+                                </span>
+                            </td>
+                            <td v-if="redList">
+                                <span class="d-flex justify-content-between w-100">
+                                    <button title="Restaurer cet élève" class="btn bg-secondary" style="width: 48%;" @click="restore(pupil)">
+                                        <i class="fa fa-recycle text-success"></i>
+                                    </button>
+                                    <button title="Supprimer définitement cet élève" class="btn bg-info"  style="width: 48%;">
+                                        <i class="fa fa-user-times text-danger"></i>
                                     </button>
                                 </span>
                             </td>
@@ -67,7 +77,7 @@
 	import { mapState } from 'vuex'
 
 	export default{
-		props: ['isProfil', 'thePupils'],
+		props: ['isProfil', 'thePupils', 'redList'],
 
 		data() {
             return {
@@ -86,17 +96,18 @@
                     "Décembre"
 
                 ],
+                pupils: []
             }   
+        },
+        created(){
+        	
         },
 
 		methods :{
             gender(sexe){
                 return sexe == "male" ? 'M' : 'F'
             },
-            filtrer(level){
-                this.$store.commit('SHOW_PUPILS_BY_LEVEL', level)
-            },
-
+            
             birthday(user)
             {
                 let date = user.birth
@@ -169,8 +180,10 @@
                 this.$store.commit('ALERT_RESET')
             }
         },
+
+        
 		computed: mapState([
-          	'pupilsArray', 'targetedClasse'
+          	'pupilsArray', 'targetedClasse', 'editedPupil'
         ])
 
 	}

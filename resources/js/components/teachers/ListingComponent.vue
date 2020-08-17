@@ -281,7 +281,7 @@
             },
 
             getSubject(id){
-                let subject =  this.AllTeachersWithSubject[id]
+                let subject =  this.AllTeachersWithSubject[id].name
                 if(subject === "Histoire-Géographie"){
                     return "Hist-Géo"
                 }
