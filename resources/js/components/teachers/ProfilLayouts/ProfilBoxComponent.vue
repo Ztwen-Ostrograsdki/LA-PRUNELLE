@@ -1,25 +1,23 @@
 <template>
 	<div class="container-profil m-0 p-0">
-		<div id="text-profil-container-opac">
-			<h3 class="text-profil-opac mx-auto text-center">
-
-			</h3>
-		</div>
 		<div class="justify-content-center w-100 m-0 p-0">
 			<transition name="fade" appear>
 				<teacher-profil-main></teacher-profil-main>
 			</transition>
 		</div>
-		<div class="mt-5" id="teacher-profil">
-			<div class="d-flex justify-content-between">
-				<div class="d-flex justify-content-between"  style="width:63% ;">
+		<div class="w-100 p-1">
+			
+		</div>
+		<div class="mt-5 w-100" id="teacher-profil">
+			<div class="d-flex justify-content-around w-100">
+				<div class="d-flex justify-content-between" style="width:30% ;">
 					<transition name="fade" appear>
 						<teacher-perso-data></teacher-perso-data>
 					</transition>
 				</div>
-				<div class="d-flex justify-content-between" style="width: 35%;">
+				<div class="d-flex justify-content-between" style="width: 30%;">
 					<transition name="fade" appear>
-						<teacher-marks-data></teacher-marks-data>
+						<profil-teacher-classes-box></profil-teacher-classes-box>
 					</transition>
 				</div>
 			</div>

@@ -4,15 +4,17 @@
 			<div class="profil-img p-2">
 				<div class="text-center" id="profil-photo">
 					<div class="d-flex justify-content-between">
-						<h3 class="">{{ targetTeacher.name }}</h3>
+						<h3 class="">{{ targetedTeacher.name }}</h3>
 					</div>
 					<span class="photo fa fa-user-secret text-primary text-shadow" style="font-size: 6rem"></span>
 				</div>
 			</div>
 		</transition>
 		<div class="profil-school d-none d-lg-inline-block">
-			<h3>COMPLEXE SCOLAIRE MON ECOLE</h3>
-			<h3 align="center" class="position-relative" style="top: 10px; font-size: 4rem">PCT</h3>
+			<h3>COMPLEXE SCOLAIRE LA PRUNELLE</h3>
+			<h3 align="center" class="position-relative" style="top: 10px; font-size: 4rem">
+				{{ targetedTeacherSubject }}
+			</h3>
 		</div>
 		<div class="profil-admin d-lg-inline-block d-sm-flex d-md-flex justify-content-sm-around justify-content-md-around">
 			<div class="justify-content-center my-0 mt-sm-1 mt-md-1">
@@ -74,7 +76,7 @@ import { mapState } from 'vuex'
 
 
 		computed: mapState([
-           'editedTeacher', 'errors', 'targetTeacher', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherBirthFMT'
+           'editedTeacher', 'errors', 'targetedTeacher', 'targetedTeacherSubject'
         ])
 
 	}

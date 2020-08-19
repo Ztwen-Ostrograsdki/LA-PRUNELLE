@@ -1,23 +1,23 @@
 <template>
-	<div class="onetable" style="width:48%">
+	<div class="onetable" style="width:100%">
 		<div class="w-100 m-0 p-0">
 			<h5>Les infos personelles</h5>
 			<table class="table-profil ">
 				<tr>
 					<td>Nom:</td>
-					<td> {{ targetTeacherLastName }} </td>
+					<td> {{ targetedTeacherLastName }} </td>
 				</tr>
 				<tr>
 					<td>Prénoms:</td>
-					<td>{{ targetTeacherFirstName }}</td>
+					<td>{{ targetedTeacherFirstName }}</td>
 				</tr>
 				<tr>
 					<td>Age:</td>
-					<td>12</td>
+					<td>{{ targetedTeacherAge + " ans"}}</td>
 				</tr>
 				<tr>
 					<td>Date de Naissance:</td>
-					<td>{{ targetTeacherBirthFMT }}</td>
+					<td>{{ targetedTeacherBirthFMT }}</td>
 				</tr>
 				<tr>
 					<td>Sexe:</td>
@@ -26,7 +26,7 @@
 				<tr>
 					<td>Spécialité:</td>
 					<td>
-						PCT
+						{{ targetedTeacher.subject.name}}
 					</td>
 				</tr>
 			</table>
@@ -46,7 +46,8 @@
 		props: ['visible'],
 		data() {
             return {
-				preEdited: {}                
+				preEdited: {},
+				            
             }   
         },
 
@@ -55,7 +56,7 @@
 
 		methods: {
 			openEdited(){
-				axios.get('/admin/director/pupilsm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id)
+				axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + this.$route.params.id)
 	                .then(response => {
 	                    this.preEdited = response.data.p
 	                    this.$store.commit('SET_TOKEN', response.data.token)
@@ -80,9 +81,10 @@
                     })
                 })
             },
+            
 		},
 		computed: mapState([
-           'editedTeacher', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherBirthFMT'
+           'editedTeacher', 'errors', 'targetedTeacherLastName', 'targetedTeacherFirstName', 'targetedTeacherBirthFMT', 'targetedTeacher', 'targetTeacherBirthFMT', 'targetedTeacherAge'
         ])
 
 	}

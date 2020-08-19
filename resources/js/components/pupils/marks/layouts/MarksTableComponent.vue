@@ -2,10 +2,11 @@
 	<div class="w-100 p-1 mx-auto">
 		<div class="w-100 mx-auto d-flex justify-content-center">
 			<table class="table-table table-striped w-100">
-				<transition name="fadelow" appear>
+				<transition name="justefade" appear>
                     <thead>
                         <th class="border-right border-white">Matières</th>
-                        <th class="border-right border-white">Interrogations</th>
+                        <th class="border-right border-white">Coef</th>
+                        <th class="border-right border-white">Interrogations (EPE)</th>
                         <th class="border-right border-white">Devoirs</th>
                         <th>Moyenne</th>
                     </thead>
@@ -14,11 +15,11 @@
                     <tbody class="w-100 marks-td">
                     	<tr class="border-bottom border-white">
                     		<td class="border-right border-white bg-linear-official-180">x</td>
+                    		<td class="border-right border-white bg-linear-official-180">x</td>
                     		<td class="text-center border-right border-white">
                     			<table class="text-center w-100 text-white-50">
 	                    			<tbody class="w-100">
 	                    				<tr class="text-center w-100">
-	                    					<td class="text-center border-right border-white coef">Coef</td>
 	                    					<td class="text-center border-right border-white">Int 1</td>
 	                    					<td class="text-center border-right border-white">Int 2</td>
 	                    					<td class="text-center border-right border-white">Int 3</td>
@@ -55,13 +56,13 @@
                     			<a class="w-75" href="#">
                     				<span class="float-left">{{ subject.name }}</span>
                     			</a>
-                    			<span class="fa fa-edit mr-3 text-white-50 mt-2" style="font-size: 9px" :title="'Editer les notes en ' + subject.name + ' de ' + editedPupil.name "></span>
+                    			<span class="fa fa-edit mr-3 text-white-50 mt-2" style="font-size: 9px" :title="'Editer les notes en ' + subject.name + ' de ' + editedPupil.name " data-toggle="modal" data-target="#editPupilMarks"></span>
                     		</td>
+                    		<td class="text-center border-right border-left border-white">2</td>
                     		<td class="text-center border-right border-left border-white">
                     			<table class="text-center w-100 text-white-50">
 	                    			<tbody class="w-100">
 	                    				<tr class="text-center w-100">
-	                    					<td class="text-center border-right border-white coef">2</td>
 	                    					<td class="text-center border-right border-white">10</td>
 	                    					<td class="text-center border-right border-white">11</td>
 	                    					<td class="text-center border-right border-white">14</td>

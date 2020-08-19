@@ -6,7 +6,10 @@ const teachers_actions = {
         })
 	},
     getATeacherData: (store, teacher) => {
-        axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + teacher.id)
+        let id = null
+        id = !isNaN(teacher) ? teacher : teacher.id
+        
+        axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + id)
             .then(response => {
                 store.commit('GET_A_TEACHER_DATA', response.data)
             })
@@ -28,6 +31,25 @@ const teachers_actions = {
 	        .then(response => {
 	        	store.commit('RESET_INVALID_INPUTS')
 	            store.commit('GET_TEACHERS_DATA', response.data)
+
+                $('#editTeacherClassesModal .buttons-div').hide('size', function(){
+                    $('#editTeacherClassesModal form').hide('fade', function(){
+                        $('#editTeacherClassesModal').animate({
+                            top: '150'
+                        }, function(){
+                            $('#editTeacherClassesModal .div-success').show('fade', 200)
+                            $('#editTeacherClassesModal .div-success h4').text('Mise à jour reussi')
+                        })
+                        
+                    })
+                    
+                })
+
+                if(inputs.route !== undefined && inputs.route.name == "teachersProfil"){
+                    let id = inputs.route.params.id
+                    store.dispatch('getATeacherData', id)
+                }
+                
 	        })
         }
         else if(inputs.teacher.level == "primary"){
@@ -139,6 +161,25 @@ const teachers_actions = {
             	
         })
 	},
+    disjoinedClasses: (store, data) => {
+        axios.delete('/admin/director/teachersm/disjoined&classe&with&this&teacher/t=' + data.teacher.id + '/c=' + data.classe.id)
+            .then(response => {
+                if(response.data.success !== undefined){
+                    store.commit('RESET_ALERT_CLASSE_DETACH', {status: true, msg: response.data.success})
+                }
+                else if (response.data.failed !== undefined) {
+                    store.commit('RESET_ALERT_CLASSE_DETACH', {status: true, msg: response.data.failed})
+                }
+                
+                // store.commit('GET_TEACHERS_DATA', response.data)
+
+                if(data.route !== undefined && data.route.name == "teachersProfil"){
+                    let id = parseInt(data.route.params.id, 10)
+                    store.dispatch('getATeacherData', id)
+                }
+                
+        })
+    },
 
     restoreTeacher: (store, teacher) => {
         // axios.put('/admin/director/teachersm/restore/id=' + teacher.id)

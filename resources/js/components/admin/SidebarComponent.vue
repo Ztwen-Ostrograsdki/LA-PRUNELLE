@@ -95,8 +95,10 @@
             <error404 v-if="errors.type == '404'"></error404>    
             <error419 v-if="errors.type == '419'"></error419>    
         </div>
+        <!-- The formulars -->
         <pupil-perso></pupil-perso>
         <pupil-add></pupil-add>
+        <pupil-edit-marks></pupil-edit-marks>
 
         <teacher-perso></teacher-perso>
         <teacher-classes></teacher-classes>
@@ -179,6 +181,15 @@
         opacity: 0;
         transform: scale(0.7);
     }
+
+    .rapidScale-enter-active, .rapidScale-leave-active{
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .rapidScale-enter, .rapidScale-leave-active{
+        opacity: 0;
+        transform: scale(0.7);
+    }
     .fadelow-enter-active, .fadelow-leave-active{
         transition: opacity 7s, transform 2s;
     }
@@ -189,6 +200,14 @@
         -ms-transform: scale(0.1);
         -o-transform: scale(0.1);
         transform: scale(0.1);
+    }
+    .justefade-enter-active, .justefade-leave-active{
+        transition: opacity 0.5s,
+    }
+
+    .justefade-enter, .justefade-leave-active{
+        opacity: 0;
+        
     }
     .bodyfade-enter-active, .bodyfade-leave-active{
         transition: opacity 7s, transform 2s;

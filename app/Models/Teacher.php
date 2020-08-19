@@ -131,5 +131,28 @@ class Teacher extends Model
 		return $classesRufused;
 	}
 
+	public function getFormattedclasses()
+	{
+		$teacher = $this;
+		$classes = [];
+
+		if ($teacher->level == 'secondary') {
+            if ($teacher->classes->count() > 0) {
+                foreach ($teacher->classes as $classe) {
+                    $classes[$classe->id] = $classe->getFormattedClasseName();
+                }
+                
+            }
+        }
+        else{
+            $cls = $teacher->classes;
+            if ($cls->toArray() !== []) {
+                $classes[$cls[0]->id] = [$cls[0]->getFormattedClasseName()];
+            }
+        }
+
+        return $classes;
+	}
+
 	
 }

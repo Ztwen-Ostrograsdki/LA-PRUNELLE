@@ -16,15 +16,11 @@
             }   
         },
         created(){
-            axios.get('/admin/director/teachersm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id)
-                .then(response => {
-                    this.$store.commit('UPDATE_TARGET_TEACHER', {teacher: response.data.p, dataFMT: {classe: '', birth: response.data.birthFMT, fist: response.data.firstName, last: response.data.lastName}})
-                }
-            )
+            this.$store.dispatch('getATeacherData', this.$route.params.id) 
         },
 
         computed: mapState([
-           'editedTeacher', 'targetTeacher', 'primaryClasses', 'secondaryClasses', 'primarySubjects', 'secondarySubjects', 'allSubjects', 'allRoles', 'allClasses', 'months', 'successed', 'invalidInputs', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherClasseFMT', 'targetTeacherBirthFMT'
+           'editedTeacher', 'targetedTeacher', 'primaryClasses', 'secondaryClasses', 'primarySubjects', 'secondarySubjects', 'allSubjects', 'allRoles', 'allClasses', 'months', 'successed', 'invalidInputs', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherClasseFMT', 'targetTeacherBirthFMT'
         ])
 
 

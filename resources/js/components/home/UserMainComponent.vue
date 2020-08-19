@@ -5,7 +5,7 @@
                 <i class="fas fa-user fa-sm fa-fw mr-2"></i>
               Profile <span class="fa fa-circle text-success float-right mt-2" style="font-size: 10px"></span>
             </a>
-            <a class="w-100 my-1 hover link-float" href="#" style="border-radius: 30px;" v-if="admin">
+            <a class="w-100 my-1 hover link-float" href="/admin/director/master" style="border-radius: 30px;" v-if="admin">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
               Administation
             </a>

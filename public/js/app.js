@@ -2015,6 +2015,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['allCounter'],
@@ -2197,6 +2208,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
 //
 //
 //
@@ -3375,6 +3388,179 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      show: true,
+      interrogations: {
+        name: "interrogations",
+        status: true
+      },
+      devoirs: {
+        name: "devoirs",
+        status: true
+      }
+    };
+  },
+  created: function created() {
+    this.$store.dispatch('getTOOLS');
+  },
+  methods: {
+    wasSelected: function wasSelected(tag, target) {
+      return tag == target ? 'selected' : '';
+    },
+    toggleInputs: function toggleInputs(object) {
+      object.status = !object.status;
+    },
+    // getMarks(){
+    // 	this.$store.commit('RESET_NEW_PUPIL')
+    // },
+    validateMarks: function validateMarks(token) {// let newPupil = this.newPupil
+      // this.$store.dispatch('addANewPupil', {newPupil, token})
+    },
+    getInvalids: function getInvalids(input) {
+      var invalids = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.invalidInputs;
+
+      if (invalids !== undefined && invalids[input] !== undefined) {
+        return 'is-invalid';
+      } else {
+        return '';
+      }
+    }
+  },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['newPupil', 'invalidInputs', 'successed', 'token', 'errors', 'months', 'primaryClasses', 'secondaryClasses', 'newPupilName'])
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditPersonalComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditPersonalComponent.vue?vue&type=script&lang=js& ***!
@@ -3807,6 +3993,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateEditedTeacherClasses: function updateEditedTeacherClasses(teacher, token, isAE) {
       var classes = {};
+      var route = this.$route;
 
       if (teacher.level == "secondary") {
         classes = {
@@ -3820,7 +4007,8 @@ __webpack_require__.r(__webpack_exports__);
           teacher: teacher,
           classes: classes,
           token: token,
-          isAE: isAE
+          isAE: isAE,
+          route: route
         });
       } else if (teacher.level == "primary") {
         classes = {
@@ -3868,23 +4056,7 @@ __webpack_require__.r(__webpack_exports__);
     classeRefused: function classeRefused(classes, classe) {
       return classes[classe] !== undefined ? true : false;
     },
-    disabledSelectedKeys: function disabledSelectedKeys() {// let disabled = ''
-      // var b = $(function(){
-      // 	let inputs = []
-      // 	for (var i = 0; i < allInputs.length; i++) {
-      // 		let input = $("form#teacher-classes-edit select[name=" + allInputs[i] + "]").val()
-      // 		inputs.push(parseInt(input, 10))
-      // 	}
-      // 	if(inputs.indexOf(current) !== -1){
-      // 		return disabled = "disabled"
-      // 	}
-      // 	else{
-      // 		return disabled = ""
-      // 	}
-      // })
-      // console.log(b)
-      // return disabled
-
+    disabledSelectedKeys: function disabledSelectedKeys() {
       var allInputs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
       var current = arguments.length > 1 ? arguments[1] : undefined;
     }
@@ -4198,6 +4370,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
   methods: {
     userSettingsShow: function userSettingsShow() {
       this.$store.commit('USER_SETTINGS', !this.userSettings);
@@ -4536,7 +4711,7 @@ __webpack_require__.r(__webpack_exports__);
     filtrer: function filtrer(level) {
       this.$store.commit('SHOW_PUPILS_BY_LEVEL', {
         level: level,
-        status: true
+        blockedSpace: false
       });
     },
     birthday: function birthday(user) {
@@ -5194,7 +5369,7 @@ __webpack_require__.r(__webpack_exports__);
     filtrer: function filtrer(level) {
       this.$store.commit('SHOW_PUPILS_BY_LEVEL', {
         level: level,
-        status: false
+        blockedSpace: true
       });
     },
     birthday: function birthday(user) {
@@ -5343,16 +5518,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      classeID: 0
+    };
   },
   created: function created() {
     var _this = this;
 
     axios.get('/admin/director/pupilsm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id).then(function (response) {
       _this.$store.commit('GET_A_PUPIL_DATA', response.data);
+
+      _this.classeID = _this.editedPupil.classe_id;
     });
   },
   methods: {},
@@ -5371,6 +5561,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
 //
 //
 //
@@ -6079,21 +6270,9 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   created: function created() {
-    var _this = this;
-
-    axios.get('/admin/director/teachersm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id).then(function (response) {
-      _this.$store.commit('UPDATE_TARGET_TEACHER', {
-        teacher: response.data.p,
-        dataFMT: {
-          classe: '',
-          birth: response.data.birthFMT,
-          fist: response.data.firstName,
-          last: response.data.lastName
-        }
-      });
-    });
+    this.$store.dispatch('getATeacherData', this.$route.params.id);
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'targetTeacher', 'primaryClasses', 'secondaryClasses', 'primarySubjects', 'secondarySubjects', 'allSubjects', 'allRoles', 'allClasses', 'months', 'successed', 'invalidInputs', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherClasseFMT', 'targetTeacherBirthFMT'])
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'targetedTeacher', 'primaryClasses', 'secondaryClasses', 'primarySubjects', 'secondarySubjects', 'allSubjects', 'allRoles', 'allClasses', 'months', 'successed', 'invalidInputs', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherClasseFMT', 'targetTeacherBirthFMT'])
 });
 
 /***/ }),
@@ -6177,111 +6356,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'errors', 'targetTeacher', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherBirthFMT'])
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['visible', 'pupil']
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['visible', 'pupil']
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'errors', 'targetedTeacher', 'targetedTeacherSubject'])
 });
 
 /***/ }),
@@ -6350,7 +6430,7 @@ __webpack_require__.r(__webpack_exports__);
     openEdited: function openEdited() {
       var _this = this;
 
-      axios.get('/admin/director/pupilsm/get&classe&of&pupil&with&data&credentials/id=' + this.$route.params.id).then(function (response) {
+      axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + this.$route.params.id).then(function (response) {
         _this.preEdited = response.data.p;
 
         _this.$store.commit('SET_TOKEN', response.data.token);
@@ -6376,7 +6456,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'errors', 'targetTeacherLastName', 'targetTeacherFirstName', 'targetTeacherBirthFMT'])
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'errors', 'targetedTeacherLastName', 'targetedTeacherFirstName', 'targetedTeacherBirthFMT', 'targetedTeacher', 'targetTeacherBirthFMT', 'targetedTeacherAge'])
 });
 
 /***/ }),
@@ -6417,8 +6497,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
   data: function data() {
@@ -6428,6 +6506,141 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      preEdited: {}
+    };
+  },
+  methods: {
+    editClasses: function editClasses(teacher) {
+      this.$store.commit('RESET_EDITED_TEACHER');
+      this.$store.commit('RESET_INVALID_INPUTS');
+      this.$store.dispatch('getATeacherData', teacher);
+      this.$store.commit('RESET_EDITED_TEACHER_CLASSES1_CONFIRM');
+      $('#editTeacherClassesModal .div-confirm-classe-prim').hide('fade');
+      $('#editTeacherClassesModal .div-success').hide('slide', 'up');
+      $('#editTeacherClassesModal .div-success h4').text('');
+      $('#editTeacherClassesModal').animate({
+        top: '20px'
+      });
+      $('#editTeacherClassesModal form').show('slide', {
+        direction: 'up'
+      }, 1, function () {
+        $('#editTeacherClassesModal form').animate({
+          opacity: '0'
+        }, function () {
+          $('#editTeacherClassesModal form').animate({
+            opacity: '1'
+          }, 800);
+          $('#editTeacherClassesModal .buttons-div').show('fade');
+        });
+      });
+    },
+    disjoinedClasses: function disjoinedClasses(teacher) {
+      var classeID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var route = this.$route;
+
+      if (classeID !== null) {
+        var classe = {
+          id: parseInt(classeID, 10)
+        };
+        this.$store.dispatch('disjoinedClasses', {
+          teacher: teacher,
+          classe: classe,
+          route: route
+        });
+      } else {
+        var _classe = {
+          id: "fresh"
+        };
+        this.$store.dispatch('disjoinedClasses', {
+          teacher: teacher,
+          classe: _classe,
+          route: route
+        });
+      }
+    },
+    closeAlert: function closeAlert() {
+      this.$store.commit('RESET_ALERT_CLASSE_DETACH', {
+        status: false,
+        msg: ''
+      });
+    }
+  },
+  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['editedTeacher', 'errors', 'targetedTeacher', 'targetedTeacherClassesFMT', 'targetedTeacherClasses', 'classeDetachAlert'])
 });
 
 /***/ }),
@@ -11277,7 +11490,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active{\n    transition: opacity 2s, transform 1s;\n}\n.fade-enter, .fade-leave-active{\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.fadeR-enter-active, .fadeR-leave-active{\n    transition: opacity 1s, transform 0.5s;\n}\n.fadeR-enter, .fadeR-leave-active{\n    opacity: 0;\n    transform: translateX(-30px);\n}\n.fadelist-enter-active, .fadelist-leave-active{\n    transition: opacity 0.5s;\n}\n.fadelist-enter, .fadelist-leave-to{\n    opacity: 0;\n}\n.scale-enter-active, .scale-leave-active{\n    transition: opacity 2s, transform 2s;\n}\n.scale-enter, .scale-leave-active{\n    opacity: 0;\n    transform: scale(0.7);\n}\n.fadelow-enter-active, .fadelow-leave-active{\n    transition: opacity 7s, transform 2s;\n}\n.fadelow-enter, .fadelow-leave-active{\n    opacity: 0;\n    transform: scale(0.1);\n}\n.bodyfade-enter-active, .bodyfade-leave-active{\n    transition: opacity 7s, transform 2s;\n}\n.bodyfade-enter, .bodyfade-leave-active{\n    opacity: 0;\n    transform: translateY(20px);\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active{\n    transition: opacity 2s, transform 1s;\n}\n.fade-enter, .fade-leave-active{\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.fadeR-enter-active, .fadeR-leave-active{\n    transition: opacity 1s, transform 0.5s;\n}\n.fadeR-enter, .fadeR-leave-active{\n    opacity: 0;\n    transform: translateX(-30px);\n}\n.fadelist-enter-active, .fadelist-leave-active{\n    transition: opacity 0.5s;\n}\n.fadelist-enter, .fadelist-leave-to{\n    opacity: 0;\n}\n.scale-enter-active, .scale-leave-active{\n    transition: opacity 2s, transform 2s;\n}\n.scale-enter, .scale-leave-active{\n    opacity: 0;\n    transform: scale(0.7);\n}\n.rapidScale-enter-active, .rapidScale-leave-active{\n    transition: opacity 0.5s, transform 0.5s;\n}\n.rapidScale-enter, .rapidScale-leave-active{\n    opacity: 0;\n    transform: scale(0.7);\n}\n.fadelow-enter-active, .fadelow-leave-active{\n    transition: opacity 7s, transform 2s;\n}\n.fadelow-enter, .fadelow-leave-active{\n    opacity: 0;\n    transform: scale(0.1);\n}\n.justefade-enter-active, .justefade-leave-active{\n    transition: opacity 0.5s\n}\n.justefade-enter, .justefade-leave-active{\n    opacity: 0;\n}\n.bodyfade-enter-active, .bodyfade-leave-active{\n    transition: opacity 7s, transform 2s;\n}\n.bodyfade-enter, .bodyfade-leave-active{\n    opacity: 0;\n    transform: translateY(20px);\n}\n", ""]);
 
 // exports
 
@@ -11307,6 +11520,25 @@ exports.push([module.i, "\ninput + i, select + i{\n\tcolor: rgb(160, 0, 0);\n\tf
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/AddNewComponent.vue?vue&type=style&index=0&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ninput + i, select + i{\n\tcolor: rgb(160, 0, 0);\n\tfont-style: normal;\n\ttext-shadow: 0 1px 1px gray;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43063,6 +43295,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditMarkComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditPersonalComponent.vue?vue&type=style&index=0&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditPersonalComponent.vue?vue&type=style&index=0&lang=css& ***!
@@ -43975,7 +44237,9 @@ var render = function() {
         "background-image": "url(/media/img/art-2578353_1920.jpg) !important",
         "background-position": "-200px 200px",
         padding: "0px",
-        height: "460px"
+        height: "480px",
+        "overflow-y": "auto",
+        outline: "0"
       },
       attrs: { id: "wrapper-admin" }
     },
@@ -44198,7 +44462,9 @@ var render = function() {
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _vm._m(4)
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5)
       ])
     ]
   )
@@ -44286,6 +44552,44 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("li", { staticClass: "subitem3" }, [
           _c("a", { attrs: { href: "#" } }, [_vm._v("Automatic Fails ")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "item6" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", {
+          staticClass: "fa fa-line-chart float-left mt-1 mr-3",
+          staticStyle: { "font-size": "25px" }
+        }),
+        _vm._v("Les examens\n\t                "),
+        _c("span", { attrs: { id: "span-counter" } }, [_vm._v("98%")])
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", { staticClass: "subitem1" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Le BAC "),
+            _c("i", { staticClass: "float-right mr-3" }, [_vm._v("( 100% )")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "subitem2" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Le BEPC "),
+            _c("i", { staticClass: "float-right mr-3" }, [_vm._v("( 100% )")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "subitem3" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Le CEP "),
+            _c("i", { staticClass: "float-right mr-3" }, [_vm._v("( 100% )")])
+          ])
         ])
       ])
     ])
@@ -44820,6 +45124,8 @@ var render = function() {
       _c("pupil-perso"),
       _vm._v(" "),
       _c("pupil-add"),
+      _vm._v(" "),
+      _c("pupil-edit-marks"),
       _vm._v(" "),
       _c("teacher-perso"),
       _vm._v(" "),
@@ -47708,6 +48014,776 @@ var staticRenderFns = [
             _c("h4", { staticClass: "modal-title w-100 mb-0 text-left pr-2" }, [
               _vm._v("Ajout d'un nouvel apprenant")
             ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "mx-auto mt-2 p-1 pb-2 div-success",
+        staticStyle: { width: "93%", display: "none" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "d-flex justify-content-center w-100 p-2 my-1" },
+          [_c("h4")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "w-75 mx-auto d-flex justify-content-center" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn w-50 bg-transparent border shadow mx-1 px-1",
+                attrs: { type: "button", "data-dismiss": "modal" }
+              },
+              [_vm._v("Terminer")]
+            )
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: !_vm.errors.status,
+          expression: "!errors.status"
+        }
+      ],
+      staticClass: "modal fade",
+      attrs: {
+        id: "editPupilMarks",
+        tabindex: "-1",
+        role: "dialog",
+        "aria-labelledby": "editPupilMarksLabel",
+        "aria-hidden": "true"
+      }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "modal-dialog modal-lg",
+          staticStyle: {
+            "background-image": "url(/media/silouhette.jpg) !important",
+            width: "100%",
+            "background-position": "-200px -400px",
+            padding: "0px"
+          },
+          attrs: { role: "document" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "bg-linear-official-50 modal-content",
+              staticStyle: { "border-style": "solid", "border-radius": "0" }
+            },
+            [
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "d-inline-block text-white close py-2 px-3 align-self-end modalCloser",
+                  attrs: { "data-dismiss": "modal", "aria-label": "Close" }
+                },
+                [_vm._v("x")]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm.invalidInputs !== undefined
+                  ? _c(
+                      "h5",
+                      {
+                        staticClass:
+                          "w-100 mx-auto p-1 h5-title text-danger text-center"
+                      },
+                      [
+                        _vm._v(
+                          "\n\t      \t\t\tLe formulaire est invalid\n\t      \t\t"
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    staticClass: "opac-form",
+                    attrs: { id: "edit-pupil-marks", method: "post" }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.token,
+                          expression: "token"
+                        }
+                      ],
+                      attrs: { type: "text", name: "token", hidden: "hidden" },
+                      domProps: { value: _vm.token },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.token = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "mx-auto m-0 p-2 w-100 bg-linear-official-180 border"
+                      },
+                      [
+                        _vm.interrogations.status
+                          ? _c("span", {
+                              staticClass: "float-right fa fa-close",
+                              on: {
+                                click: function($event) {
+                                  return _vm.toggleInputs(_vm.interrogations)
+                                }
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        !_vm.interrogations.status
+                          ? _c(
+                              "span",
+                              { staticClass: "d-inline-block w-100 p-2" },
+                              [
+                                _c("span", { staticClass: "h5-title" }, [
+                                  _vm._v("Afficher les notes d'interrogations")
+                                ]),
+                                _vm._v(" "),
+                                _c("span", {
+                                  staticClass: "float-right fa fa-chevron-down",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.toggleInputs(
+                                        _vm.interrogations
+                                      )
+                                    }
+                                  }
+                                })
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "transition",
+                          { attrs: { name: "rapidScale", appear: "" } },
+                          [
+                            _vm.interrogations.status
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "w-100 my-2 d-flex flex-column p-1 pb-3"
+                                  },
+                                  [
+                                    _c("div", { staticClass: "w-100 my-2" }, [
+                                      _c(
+                                        "h5",
+                                        {
+                                          staticClass:
+                                            "text-center w-100 text-white-50 border-bottom border-dark"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n\t\t\t        \t\t\t\tLes evaluations ponctuelles d'étapes\n\t\t\t        \t\t\t"
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "mx-auto mt-2 d-flex justify-content-around",
+                                        staticStyle: { width: "93%" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "mx-auto",
+                                            staticStyle: { width: "19.2%" }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "m-0 p-0",
+                                                attrs: { for: "edit_p_epe1" }
+                                              },
+                                              [_vm._v("EPE 1")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "m-0 p-0 form-control p-1",
+                                              class: _vm.getInvalids(
+                                                "epe1",
+                                                _vm.invalidInputs
+                                              ),
+                                              attrs: {
+                                                type: "text",
+                                                name: "epe1",
+                                                id: "edit_p_epe1",
+                                                placeholder: "EPE 1"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _vm.invalidInputs !== undefined
+                                              ? _c(
+                                                  "i",
+                                                  { staticClass: "h5-title" },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.invalidInputs
+                                                            .name[0]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "mx-auto",
+                                            staticStyle: { width: "19.2%" }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "m-0 p-0",
+                                                attrs: { for: "edit_p_epe2" }
+                                              },
+                                              [_vm._v("EPE 2")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "m-0 p-0 form-control p-1",
+                                              class: _vm.getInvalids(
+                                                "epe2",
+                                                _vm.invalidInputs
+                                              ),
+                                              attrs: {
+                                                type: "text",
+                                                name: "epe2",
+                                                id: "edit_p_epe2",
+                                                placeholder: "EPE 2"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _vm.invalidInputs !== undefined
+                                              ? _c(
+                                                  "i",
+                                                  { staticClass: "h5-title" },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.invalidInputs
+                                                            .name[0]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "mx-auto",
+                                            staticStyle: { width: "19.2%" }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "m-0 p-0",
+                                                attrs: { for: "edit_p_epe3" }
+                                              },
+                                              [_vm._v("EPE 3")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "m-0 p-0 form-control p-1",
+                                              class: _vm.getInvalids(
+                                                "epe3",
+                                                _vm.invalidInputs
+                                              ),
+                                              attrs: {
+                                                type: "text",
+                                                name: "epe3",
+                                                id: "edit_p_epe3",
+                                                placeholder: "EPE 3"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _vm.invalidInputs !== undefined
+                                              ? _c(
+                                                  "i",
+                                                  { staticClass: "h5-title" },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.invalidInputs
+                                                            .name[0]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "mx-auto",
+                                            staticStyle: { width: "19.2%" }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "m-0 p-0",
+                                                attrs: { for: "edit_p_epe4" }
+                                              },
+                                              [_vm._v("EPE 4")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "m-0 p-0 form-control p-1",
+                                              class: _vm.getInvalids(
+                                                "epe4",
+                                                _vm.invalidInputs
+                                              ),
+                                              attrs: {
+                                                type: "text",
+                                                name: "epe4",
+                                                id: "edit_p_epe4",
+                                                placeholder: "EPE 4"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _vm.invalidInputs !== undefined
+                                              ? _c(
+                                                  "i",
+                                                  { staticClass: "h5-title" },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.invalidInputs
+                                                            .name[0]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "mx-auto",
+                                            staticStyle: { width: "19.2%" }
+                                          },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "m-0 p-0",
+                                                attrs: { for: "edit_p_epe5" }
+                                              },
+                                              [_vm._v("EPE 5")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              staticClass:
+                                                "m-0 p-0 form-control p-1",
+                                              class: _vm.getInvalids(
+                                                "epe5",
+                                                _vm.invalidInputs
+                                              ),
+                                              attrs: {
+                                                type: "text",
+                                                name: "epe5",
+                                                id: "edit_p_epe5",
+                                                placeholder: "EPE 5"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _vm.invalidInputs !== undefined
+                                              ? _c(
+                                                  "i",
+                                                  { staticClass: "h5-title" },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.invalidInputs
+                                                            .name[0]
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "w-100 mx-auto p-2 m-0 mt-2 bg-linear-official-180 border"
+                      },
+                      [
+                        _vm.devoirs.status
+                          ? _c("span", {
+                              staticClass: "float-right fa fa-close",
+                              on: {
+                                click: function($event) {
+                                  return _vm.toggleInputs(_vm.devoirs)
+                                }
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        !_vm.devoirs.status
+                          ? _c(
+                              "span",
+                              { staticClass: "d-inline-block w-100 p-2" },
+                              [
+                                _c("span", { staticClass: "h5-title" }, [
+                                  _vm._v("Afficher les notes devoirs")
+                                ]),
+                                _vm._v(" "),
+                                _c("span", {
+                                  staticClass: "float-right fa fa-chevron-down",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.toggleInputs(_vm.devoirs)
+                                    }
+                                  }
+                                })
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "transition",
+                          { attrs: { name: "rapidScale", appear: "" } },
+                          [
+                            _vm.devoirs.status
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "w-100 my-2 d-flex flex-column p-1 pb-3"
+                                  },
+                                  [
+                                    _c("div", { staticClass: "w-100 my-2" }, [
+                                      _c(
+                                        "h5",
+                                        {
+                                          staticClass:
+                                            "text-center text-white-50 w-100 border-bottom border-dark"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n\t\t\t        \t\t\t\tLes devoirs\n\t\t\t        \t\t\t"
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "mx-auto mt-2 d-flex justify-content-start",
+                                          staticStyle: { width: "93%" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "mr-2",
+                                              staticStyle: { width: "30%" }
+                                            },
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "m-0 p-0",
+                                                  attrs: { for: "edit_p_dev1" }
+                                                },
+                                                [_vm._v("Devoir 1")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass:
+                                                  "m-0 p-0 form-control p-1",
+                                                class: _vm.getInvalids(
+                                                  "dev1",
+                                                  _vm.invalidInputs
+                                                ),
+                                                attrs: {
+                                                  type: "text",
+                                                  name: "dev1",
+                                                  id: "edit_p_dev1",
+                                                  placeholder: "Dev 1"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _vm.invalidInputs !== undefined
+                                                ? _c(
+                                                    "i",
+                                                    { staticClass: "h5-title" },
+                                                    [
+                                                      _vm._v(
+                                                        " " +
+                                                          _vm._s(
+                                                            _vm.invalidInputs
+                                                              .name[0]
+                                                          ) +
+                                                          " "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "mr-2",
+                                              staticStyle: { width: "30%" }
+                                            },
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "m-0 p-0",
+                                                  attrs: { for: "edit_p_dev2" }
+                                                },
+                                                [_vm._v("Devoir 2")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                staticClass:
+                                                  "m-0 p-0 form-control p-1",
+                                                class: _vm.getInvalids(
+                                                  "dev2",
+                                                  _vm.invalidInputs
+                                                ),
+                                                attrs: {
+                                                  type: "text",
+                                                  name: "dev2",
+                                                  id: "edit_p_dev2",
+                                                  placeholder: "Dev 2"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _vm.invalidInputs !== undefined
+                                                ? _c(
+                                                    "i",
+                                                    { staticClass: "h5-title" },
+                                                    [
+                                                      _vm._v(
+                                                        " " +
+                                                          _vm._s(
+                                                            _vm.invalidInputs
+                                                              .name[0]
+                                                          ) +
+                                                          " "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "mx-auto mt-2 p-1 pb-2 buttons-div",
+                  staticStyle: { width: "93%" }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary w-25 float-right",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.validateMarks(_vm.token)
+                        }
+                      }
+                    },
+                    [_vm._v("Inserer")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary w-25 mx-1 float-right",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Annuler")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "modal-header w-100 d-flex justify-content-between p-0 pl-2 m-0"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-header w-100 d-flex justify-content-between p-0 pl-2 m-0"
+          },
+          [
+            _c(
+              "h4",
+              {
+                staticClass: "modal-title d-flex w-100 mb-0 text-left pr-2",
+                staticStyle: { "font-size": "12px" }
+              },
+              [
+                _c("span", { staticClass: "d-inline-block w-50 mr-1" }, [
+                  _vm._v("Edition des notes de l'apprenant...")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "text-danger text-right float-right h5-title"
+                  },
+                  [
+                    _vm._v(
+                      "Lorsqu'une note est validée elle ne peut plus être modifiée après une durée de "
+                    ),
+                    _c("span", { staticClass: "text-warning" }, [
+                      _vm._v("56 heures")
+                    ]),
+                    _vm._v(" sans une autorisation administrative")
+                  ]
+                )
+              ]
+            )
           ]
         )
       ]
@@ -50935,7 +52011,7 @@ var render = function() {
                 {
                   staticClass: "w-100 my-1 hover link-float",
                   staticStyle: { "border-radius": "30px" },
-                  attrs: { href: "#" }
+                  attrs: { href: "/admin/director/master" }
                 },
                 [
                   _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2" }),
@@ -52928,7 +54004,7 @@ var render = function() {
                           attrs: {
                             to: {
                               name: "classesProfil",
-                              params: { id: _vm.editedPupil.classe_id }
+                              params: { id: _vm.classeID }
                             }
                           }
                         },
@@ -52970,7 +54046,35 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm._m(2),
+      _c(
+        "div",
+        { staticClass: "d-flex w-100 my-1 py-1 justify-content-between" },
+        [
+          _c("div", { staticClass: "mx-1 my-0" }, [
+            _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
+              _vm._v("Trimestre 1")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
+              _vm._v("Trimestre 2")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
+              _vm._v("Trimestre 3")
+            ]),
+            _vm._v(" "),
+            _vm.targetPupilClasseFMT.name == "3" ||
+            _vm.targetPupilClasseFMT.name == "T" ||
+            _vm.targetPupilClasseFMT.name == "CM2"
+              ? _c("span", { staticClass: "btn btn-warning text-dark py-1" }, [
+                  _vm._v("Les notes d'examens")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "mt-1", attrs: { id: "pupil-profil" } }, [
         _c(
@@ -52979,7 +54083,7 @@ var render = function() {
           [
             _c(
               "transition",
-              { attrs: { name: "fade", appear: "" } },
+              { attrs: { name: "justefade", appear: "" } },
               [_c("marks-table")],
               1
             )
@@ -53014,37 +54118,48 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "d-flex w-100 my-1 py-1 justify-content-between" },
+      {
+        staticClass:
+          "mx-1 d-flex justify-content-between flex-column font-italic"
+      },
       [
-        _c("div", { staticClass: "mx-1 my-0" }, [
-          _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
-            _vm._v("Trimestre 1")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
-            _vm._v("Trimestre 2")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "btn btn-primary text-white-50 py-1" }, [
-            _vm._v("Trimestre 3")
-          ])
-        ]),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "mx-1 d-flex justify-content-between font-italic" },
           [
             _c("div", { staticClass: "mx-2" }, [
-              _c("h5", { staticClass: "text-white-50" }, [
+              _c("h5", { staticClass: "text-white-50 h5-title" }, [
                 _vm._v("Plus Faible note: "),
                 _c("span", { staticClass: "text-danger" }, [_vm._v("08")])
               ])
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("h5", { staticClass: "text-white-50" }, [
+              _c("h5", { staticClass: "text-white-50 h5-title" }, [
                 _vm._v("Plus Forte note: "),
                 _c("span", { staticClass: "text-success" }, [_vm._v("17")])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mx-1 d-flex justify-content-between font-italic" },
+          [
+            _c("div", { staticClass: "mx-2" }, [
+              _c("h5", { staticClass: "text-white-50 h5-title" }, [
+                _vm._v("Dernière Evaluation: "),
+                _c("span", { staticClass: "text-warning" }, [
+                  _vm._v("15 (PCT) ")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("h5", { staticClass: "text-white-50 h5-title" }, [
+                _vm._v("Pourcentage de réussite dans les Evalautions: "),
+                _c("span", { staticClass: "text-success" }, [_vm._v("47%")])
               ])
             ])
           ]
@@ -53080,14 +54195,18 @@ var render = function() {
         "table",
         { staticClass: "table-table table-striped w-100" },
         [
-          _c("transition", { attrs: { name: "fadelow", appear: "" } }, [
+          _c("transition", { attrs: { name: "justefade", appear: "" } }, [
             _c("thead", [
               _c("th", { staticClass: "border-right border-white" }, [
                 _vm._v("Matières")
               ]),
               _vm._v(" "),
               _c("th", { staticClass: "border-right border-white" }, [
-                _vm._v("Interrogations")
+                _vm._v("Coef")
+              ]),
+              _vm._v(" "),
+              _c("th", { staticClass: "border-right border-white" }, [
+                _vm._v("Interrogations (EPE)")
               ]),
               _vm._v(" "),
               _c("th", { staticClass: "border-right border-white" }, [
@@ -53115,6 +54234,15 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "td",
+                    {
+                      staticClass:
+                        "border-right border-white bg-linear-official-180"
+                    },
+                    [_vm._v("x")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
                     { staticClass: "text-center border-right border-white" },
                     [
                       _c(
@@ -53123,15 +54251,6 @@ var render = function() {
                         [
                           _c("tbody", { staticClass: "w-100" }, [
                             _c("tr", { staticClass: "text-center w-100" }, [
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "text-center border-right border-white coef"
-                                },
-                                [_vm._v("Coef")]
-                              ),
-                              _vm._v(" "),
                               _c(
                                 "td",
                                 {
@@ -53266,10 +54385,21 @@ var render = function() {
                                 "Editer les notes en " +
                                 subject.name +
                                 " de " +
-                                _vm.editedPupil.name
+                                _vm.editedPupil.name,
+                              "data-toggle": "modal",
+                              "data-target": "#editPupilMarks"
                             }
                           })
                         ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        {
+                          staticClass:
+                            "text-center border-right border-left border-white"
+                        },
+                        [_vm._v("2")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53285,15 +54415,6 @@ var render = function() {
                             [
                               _c("tbody", { staticClass: "w-100" }, [
                                 _c("tr", { staticClass: "text-center w-100" }, [
-                                  _c(
-                                    "td",
-                                    {
-                                      staticClass:
-                                        "text-center border-right border-white coef"
-                                    },
-                                    [_vm._v("2")]
-                                  ),
-                                  _vm._v(" "),
                                   _c(
                                     "td",
                                     {
@@ -54666,7 +55787,7 @@ var render = function() {
             { staticClass: "text-center", attrs: { id: "profil-photo" } },
             [
               _c("div", { staticClass: "d-flex justify-content-between" }, [
-                _c("h3", {}, [_vm._v(_vm._s(_vm.targetTeacher.name))])
+                _c("h3", {}, [_vm._v(_vm._s(_vm.targetedTeacher.name))])
               ]),
               _vm._v(" "),
               _c("span", {
@@ -54678,23 +55799,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1)
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "profil-school d-none d-lg-inline-block" },
-      [
-        _c("h3", [_vm._v("COMPLEXE SCOLAIRE MON ECOLE")]),
+      _c("div", { staticClass: "profil-school d-none d-lg-inline-block" }, [
+        _c("h3", [_vm._v("COMPLEXE SCOLAIRE LA PRUNELLE")]),
         _vm._v(" "),
         _c(
           "h3",
@@ -54703,11 +55809,20 @@ var staticRenderFns = [
             staticStyle: { top: "10px", "font-size": "4rem" },
             attrs: { align: "center" }
           },
-          [_vm._v("PCT")]
+          [
+            _vm._v(
+              "\n\t\t\t\t" + _vm._s(_vm.targetedTeacherSubject) + "\n\t\t\t"
+            )
+          ]
         )
-      ]
-    )
-  },
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    1
+  )
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -54936,170 +56051,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3&":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3& ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "onetable w-100" }, [
-      _c("h5", [_vm._v("Les détails suplémentaires")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table-profil " }, [
-        _c("tr", [
-          _c("td", [_vm._v("Moyenne 1er Trimestre :")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("15")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Moyenne 2eme Trimestre :")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("14.55")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Moyenne 3eme Trimestre :")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("16.05")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Moyenne Générale :")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("15.55")])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Observation :")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Bonne")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-news my-1 p-1 float-right",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Mettre à jour")]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c&":
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c& ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "onetable", staticStyle: { width: "48%" } },
-      [
-        _c("div", { staticClass: "w-100 m-0 p-0" }, [
-          _c("h5", [_vm._v("Les infos parentales")]),
-          _vm._v(" "),
-          _c("table", { staticClass: "table-profil " }, [
-            _c("tr", [
-              _c("td", [_vm._v("Père :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Hubert")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Profession :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Enseignant")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Mère :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Germaine")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Profession :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Enseignant")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Contacts :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("65547585/96857415")])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Localité :")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Cotonou")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-news my-1 p-1 float-right",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Mettre à jour")]
-            )
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/PersonalBoxComponent.vue?vue&type=template&id=6e8af637&":
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/PersonalBoxComponent.vue?vue&type=template&id=6e8af637& ***!
@@ -55115,68 +56066,79 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "onetable", staticStyle: { width: "48%" } }, [
-    _c("div", { staticClass: "w-100 m-0 p-0" }, [
-      _c("h5", [_vm._v("Les infos personelles")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table-profil " }, [
-        _c("tr", [
-          _c("td", [_vm._v("Nom:")]),
+  return _c(
+    "div",
+    { staticClass: "onetable", staticStyle: { width: "100%" } },
+    [
+      _c("div", { staticClass: "w-100 m-0 p-0" }, [
+        _c("h5", [_vm._v("Les infos personelles")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table-profil " }, [
+          _c("tr", [
+            _c("td", [_vm._v("Nom:")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(" " + _vm._s(_vm.targetedTeacherLastName) + " ")])
+          ]),
           _vm._v(" "),
-          _c("td", [_vm._v(" " + _vm._s(_vm.targetTeacherLastName) + " ")])
+          _c("tr", [
+            _c("td", [_vm._v("Prénoms:")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.targetedTeacherFirstName))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Age:")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.targetedTeacherAge + " ans"))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Date de Naissance:")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.targetedTeacherBirthFMT))])
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Spécialité:")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\n\t\t\t\t\t" +
+                  _vm._s(_vm.targetedTeacher.subject.name) +
+                  "\n\t\t\t\t"
+              )
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Prénoms:")]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.targetTeacherFirstName))])
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v("Date de Naissance:")]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.targetTeacherBirthFMT))])
-        ]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2)
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _c(
-          "i",
-          {
-            staticClass: "btn btn-news my-1 p-1 pr-2 float-right",
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": "#editTeacherPersoModal"
-            },
-            on: {
-              click: function($event) {
-                return _vm.openEdited()
+        _c("span", [
+          _c(
+            "i",
+            {
+              staticClass: "btn btn-news my-1 p-1 pr-2 float-right",
+              attrs: {
+                "data-toggle": "modal",
+                "data-target": "#editTeacherPersoModal"
+              },
+              on: {
+                click: function($event) {
+                  return _vm.openEdited()
+                }
               }
-            }
-          },
-          [_c("i", { staticClass: "fa fa-edit mr-2" }), _vm._v("Mettre à jour")]
-        )
+            },
+            [
+              _c("i", { staticClass: "fa fa-edit mr-2" }),
+              _vm._v("Mettre à jour")
+            ]
+          )
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("Age:")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("12")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -55185,16 +56147,6 @@ var staticRenderFns = [
       _c("td", [_vm._v("Sexe:")]),
       _vm._v(" "),
       _c("td", [_vm._v("M")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("Spécialité:")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("\n\t\t\t\t\tPCT\n\t\t\t\t")])
     ])
   }
 ]
@@ -55220,8 +56172,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-profil m-0 p-0" }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "justify-content-center w-100 m-0 p-0" },
@@ -55236,13 +56186,15 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "mt-5", attrs: { id: "teacher-profil" } }, [
-      _c("div", { staticClass: "d-flex justify-content-between" }, [
+    _c("div", { staticClass: "w-100 p-1" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "mt-5 w-100", attrs: { id: "teacher-profil" } }, [
+      _c("div", { staticClass: "d-flex justify-content-around w-100" }, [
         _c(
           "div",
           {
             staticClass: "d-flex justify-content-between",
-            staticStyle: { width: "63%" }
+            staticStyle: { width: "30%" }
           },
           [
             _c(
@@ -55259,13 +56211,13 @@ var render = function() {
           "div",
           {
             staticClass: "d-flex justify-content-between",
-            staticStyle: { width: "35%" }
+            staticStyle: { width: "30%" }
           },
           [
             _c(
               "transition",
               { attrs: { name: "fade", appear: "" } },
-              [_c("teacher-marks-data")],
+              [_c("profil-teacher-classes-box")],
               1
             )
           ],
@@ -55275,14 +56227,288 @@ var render = function() {
     ])
   ])
 }
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "onetable teacher-classes  ",
+      staticStyle: { width: "100%" }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "onetable teacher-classes",
+          staticStyle: { width: "100%" }
+        },
+        [
+          _c("h5", [
+            _vm._v("\n            Les classes tenues\n            "),
+            _vm.targetedTeacherClasses.length > 0
+              ? _c("div", { staticClass: "d-inline m-0 p-0 float-right" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "float-right fa",
+                      attrs: {
+                        title:
+                          "Retirer toutes les classes de la gestion du prof " +
+                          _vm.targetedTeacher.name
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.disjoinedClasses(_vm.targetedTeacher, null)
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "float-right",
+                        attrs: {
+                          src: "/media/icons/recycleall.png",
+                          alt: "recyclage",
+                          width: "25"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm.targetedTeacherClasses.length > 0
+            ? _c("div", { staticClass: "m-0 p-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "border w-100 p-1 bg-linear-official-180" },
+                  _vm._l(_vm.targetedTeacherClassesFMT, function(classe, k) {
+                    return _c(
+                      "div",
+                      { staticClass: "d-flex mb-1 border-bottom" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "border-right p-1 text-center",
+                            staticStyle: { width: "40%" }
+                          },
+                          [
+                            _c(
+                              "span",
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass:
+                                      "text-white-50 text-decoration-none",
+                                    attrs: {
+                                      to: {
+                                        name: "classesProfil",
+                                        params: { id: k }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(classe.name)
+                                    ),
+                                    _c("sup", [_vm._v(_vm._s(classe.sup))]),
+                                    _vm._v(
+                                      " " +
+                                        _vm._s(classe.idc) +
+                                        "\n                            "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "d-inline float-right ml-3",
+                                attrs: {
+                                  title:
+                                    "Retirer cette classe de la gestion de ce prof"
+                                }
+                              },
+                              [
+                                _c("div", { staticClass: "d-inline m-0 p-0" }, [
+                                  _c(
+                                    "span",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.disjoinedClasses(
+                                            _vm.targetedTeacher,
+                                            k
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass: "fa fa-remove text-danger"
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(0, true)
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(1, true)
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.targetedTeacherClasses.length <= 0
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "m-0 p-2 font-italic bg-linear-official-180 border border-white"
+                },
+                [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "text-white-50",
+                      staticStyle: { "font-size": "9px" }
+                    },
+                    [
+                      _vm._v("Le prof "),
+                      _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v(_vm._s(_vm.targetedTeacher.name))
+                      ]),
+                      _vm._v(" n'a encore aucune salle")
+                    ]
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "m-0 p-0 d-flex flex-column" }, [
+            _c(
+              "div",
+              {
+                staticClass: "m-0 p-0",
+                on: {
+                  click: function($event) {
+                    return _vm.editClasses(_vm.targetedTeacher)
+                  }
+                }
+              },
+              [
+                _c(
+                  "span",
+                  {
+                    staticClass: "btn btn-news mt-1 p-1 float-right",
+                    attrs: {
+                      href: "#",
+                      "data-toggle": "modal",
+                      "data-target": "#editTeacherClassesModal"
+                    }
+                  },
+                  [_vm._v("Mettre à jour")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm.classeDetachAlert.status
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "m-1 h5-title p-1 text-white text-success border rounded shadow"
+                  },
+                  [
+                    _vm._v(
+                      "\n            \t" +
+                        _vm._s(_vm.classeDetachAlert.msg) +
+                        " "
+                    ),
+                    _c("span", {
+                      staticClass: "fa fa-close float-right mt-1",
+                      on: {
+                        click: function($event) {
+                          return _vm.closeAlert()
+                        }
+                      }
+                    })
+                  ]
+                )
+              : _vm._e()
+          ])
+        ]
+      )
+    ]
+  )
+}
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "text-profil-container-opac" } }, [
-      _c("h3", { staticClass: "text-profil-opac mx-auto text-center" })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "float-right",
+        attrs: {
+          title:
+            "Empêcher le prof d'avoir la possiblité de modifier les notes de cette classe"
+        }
+      },
+      [
+        _c("div", { staticClass: "d-inline m-0 p-0" }, [
+          _c("span", [_c("span", { staticClass: "fa fa-lock text-warning" })])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-center", staticStyle: { width: "55%" } },
+      [
+        _c("h6", { staticClass: "m-0 p-0" }, [_vm._v("Lundi 10h - 12h")]),
+        _vm._v(" "),
+        _c("h6", { staticClass: "m-0 p-0" }, [_vm._v("Mercredi 10h - 12h")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -72500,6 +73726,7 @@ var login = Vue.component('login', __webpack_require__(/*! ./components/connexio
 
 var pupils_add = Vue.component('pupil-add', __webpack_require__(/*! ./components/formulars/pupils/AddNewComponent.vue */ "./resources/js/components/formulars/pupils/AddNewComponent.vue")["default"]);
 var pupils_perso_edit = Vue.component('pupil-perso', __webpack_require__(/*! ./components/formulars/pupils/EditPersonalComponent.vue */ "./resources/js/components/formulars/pupils/EditPersonalComponent.vue")["default"]);
+var pupils_edit_marks = Vue.component('pupil-edit-marks', __webpack_require__(/*! ./components/formulars/pupils/EditMarkComponent.vue */ "./resources/js/components/formulars/pupils/EditMarkComponent.vue")["default"]);
 var teachers_add = Vue.component('teacher-add', __webpack_require__(/*! ./components/formulars/teachers/AddNewComponent.vue */ "./resources/js/components/formulars/teachers/AddNewComponent.vue")["default"]);
 var teachers_perso_edit = Vue.component('teacher-perso', __webpack_require__(/*! ./components/formulars/teachers/EditPersonalComponent.vue */ "./resources/js/components/formulars/teachers/EditPersonalComponent.vue")["default"]);
 var teachers_classes_edit = Vue.component('teacher-classes', __webpack_require__(/*! ./components/formulars/teachers/EditClassesComponent.vue */ "./resources/js/components/formulars/teachers/EditClassesComponent.vue")["default"]);
@@ -72511,9 +73738,8 @@ var teachers_redList = Vue.component('teachers-redList', __webpack_require__(/*!
 var teachers_profil = Vue.component('profil-component-teachers', __webpack_require__(/*! ./components/teachers/ProfilComponent.vue */ "./resources/js/components/teachers/ProfilComponent.vue")["default"]);
 var teachers_profil_main = Vue.component('teacher-profil-main', __webpack_require__(/*! ./components/teachers/ProfilLayouts/MainProfilComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/MainProfilComponent.vue")["default"]);
 var teachers_perso_data = Vue.component('teacher-perso-data', __webpack_require__(/*! ./components/teachers/ProfilLayouts/PersonalBoxComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/PersonalBoxComponent.vue")["default"]);
-var teachers_parents_data = Vue.component('teacher-parents-data', __webpack_require__(/*! ./components/teachers/ProfilLayouts/ParentalBoxComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue")["default"]);
-var teachers_marks_data = Vue.component('teacher-marks-data', __webpack_require__(/*! ./components/teachers/ProfilLayouts/MarksBoxComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue")["default"]);
 var teachers_profil_box = Vue.component('profil-teacher-box', __webpack_require__(/*! ./components/teachers/ProfilLayouts/ProfilBoxComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/ProfilBoxComponent.vue")["default"]);
+var teachers_classes_box = Vue.component('profil-teacher-classes-box', __webpack_require__(/*! ./components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue */ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue")["default"]);
 var routes = [{
   path: '/admin/director/master',
   component: admin_defaultDashboard,
@@ -73530,6 +74756,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddNewComponent_vue_vue_type_template_id_dcb34772___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddNewComponent_vue_vue_type_template_id_dcb34772___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/formulars/pupils/EditMarkComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/formulars/pupils/EditMarkComponent.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditMarkComponent.vue?vue&type=template&id=42065762& */ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762&");
+/* harmony import */ var _EditMarkComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditMarkComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditMarkComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _EditMarkComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/formulars/pupils/EditMarkComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditMarkComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditMarkComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditMarkComponent.vue?vue&type=template&id=42065762& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulars/pupils/EditMarkComponent.vue?vue&type=template&id=42065762&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMarkComponent_vue_vue_type_template_id_42065762___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -75475,144 +76788,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MarksBoxComponent.vue?vue&type=template&id=21a574c3& */ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3&");
-/* harmony import */ var _MarksBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MarksBoxComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _MarksBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarksBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MarksBoxComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarksBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3& ***!
-  \*************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MarksBoxComponent.vue?vue&type=template&id=21a574c3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/MarksBoxComponent.vue?vue&type=template&id=21a574c3&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarksBoxComponent_vue_vue_type_template_id_21a574c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ParentalBoxComponent.vue?vue&type=template&id=7fc3984c& */ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c&");
-/* harmony import */ var _ParentalBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ParentalBoxComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ParentalBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ParentalBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ParentalBoxComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ParentalBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c&":
-/*!****************************************************************************************************************!*\
-  !*** ./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c& ***!
-  \****************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ParentalBoxComponent.vue?vue&type=template&id=7fc3984c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/ParentalBoxComponent.vue?vue&type=template&id=7fc3984c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ParentalBoxComponent_vue_vue_type_template_id_7fc3984c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/teachers/ProfilLayouts/PersonalBoxComponent.vue":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/teachers/ProfilLayouts/PersonalBoxComponent.vue ***!
@@ -75764,6 +76939,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfilBoxComponent_vue_vue_type_template_id_3b5c351a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfilBoxComponent_vue_vue_type_template_id_3b5c351a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b& */ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b&");
+/* harmony import */ var _TeacherClassesBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TeacherClassesBoxComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TeacherClassesBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherClassesBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TeacherClassesBoxComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherClassesBoxComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b& ***!
+  \**********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue?vue&type=template&id=1cef3c1b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TeacherClassesBoxComponent_vue_vue_type_template_id_1cef3c1b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -76090,7 +77334,9 @@ var teachers_actions = {
     });
   },
   getATeacherData: function getATeacherData(store, teacher) {
-    axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + teacher.id).then(function (response) {
+    var id = null;
+    id = !isNaN(teacher) ? teacher : teacher.id;
+    axios.get('/admin/director/teachersm/get&classes&of&teacher&with&data&credentials/id=' + id).then(function (response) {
       store.commit('GET_A_TEACHER_DATA', response.data);
     })["catch"](function (e) {
       store.commit('ALERT_MAKER', "L'opération a échoué: Echec de connexion au serveur! Veuillez réessayer!");
@@ -76109,6 +77355,21 @@ var teachers_actions = {
       }).then(function (response) {
         store.commit('RESET_INVALID_INPUTS');
         store.commit('GET_TEACHERS_DATA', response.data);
+        $('#editTeacherClassesModal .buttons-div').hide('size', function () {
+          $('#editTeacherClassesModal form').hide('fade', function () {
+            $('#editTeacherClassesModal').animate({
+              top: '150'
+            }, function () {
+              $('#editTeacherClassesModal .div-success').show('fade', 200);
+              $('#editTeacherClassesModal .div-success h4').text('Mise à jour reussi');
+            });
+          });
+        });
+
+        if (inputs.route !== undefined && inputs.route.name == "teachersProfil") {
+          var id = inputs.route.params.id;
+          store.dispatch('getATeacherData', id);
+        }
       });
     } else if (inputs.teacher.level == "primary") {
       axios.put('/admin/director/teachersm/update/update&classes&with&authorization/id=' + inputs.teacher.id, {
@@ -76194,6 +77455,27 @@ var teachers_actions = {
     axios["delete"]('/admin/director/teachersm/' + teacher.id).then(function (response) {
       store.commit('GET_TEACHERS_DATA', response.data);
       store.commit('ALERT_MAKER', "L'enseignant " + teacher.name + " a été envoyé dans la corbeille avec succès!");
+    });
+  },
+  disjoinedClasses: function disjoinedClasses(store, data) {
+    axios["delete"]('/admin/director/teachersm/disjoined&classe&with&this&teacher/t=' + data.teacher.id + '/c=' + data.classe.id).then(function (response) {
+      if (response.data.success !== undefined) {
+        store.commit('RESET_ALERT_CLASSE_DETACH', {
+          status: true,
+          msg: response.data.success
+        });
+      } else if (response.data.failed !== undefined) {
+        store.commit('RESET_ALERT_CLASSE_DETACH', {
+          status: true,
+          msg: response.data.failed
+        });
+      } // store.commit('GET_TEACHERS_DATA', response.data)
+
+
+      if (data.route !== undefined && data.route.name == "teachersProfil") {
+        var id = parseInt(data.route.params.id, 10);
+        store.dispatch('getATeacherData', id);
+      }
     });
   },
   restoreTeacher: function restoreTeacher(store, teacher) {// axios.put('/admin/director/teachersm/restore/id=' + teacher.id)
@@ -76453,7 +77735,7 @@ var pupils_mutations = {
     state.editedPupil = {};
   },
   SHOW_PUPILS_BY_LEVEL: function SHOW_PUPILS_BY_LEVEL(state, data) {
-    if (data.notBlockedSpace == true) {
+    if (data.blockedSpace == false) {
       if (data.level == 'secondary') {
         state.pupils = state.secondaryPupils;
         state.alertPupilsSearch = "Les eleves du secondaire";
@@ -76467,7 +77749,7 @@ var pupils_mutations = {
     } else {
       if (data.level == 'secondary') {
         state.pupilsBlockeds = state.PSBlockeds;
-        state.alertPupilsSearch = "Les eleves du secondaire red";
+        state.alertPupilsSearch = "Les eleves du secondaire";
       } else if (data.level == 'primary') {
         state.pupilsBlockeds = state.PPBlockeds;
         state.alertPupilsSearch = "Les eleves du primaire";
@@ -76491,6 +77773,47 @@ var pupils_mutations = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+var getAge = function getAge(theDate) {
+  var parts = theDate.split("-").reverse();
+  var d = parseInt(parts[0], 10);
+  var m = parseInt(parts[1], 10);
+  var y = parseInt(parts[2], 10);
+  var date = new Date(y, m, d);
+  var diff = Date.now() - date.getTime();
+  var age = new Date(diff);
+  return Math.abs(age.getUTCFullYear() - 1970);
+};
+
+var getSubject = function getSubject(subject) {
+  if (subject === 'Physique-Chimie-Technologie') {
+    return 'PCT';
+  } else if (subject === 'Histoire-Géographie') {
+    return 'Hist-Géo';
+  }
+
+  return subject;
+};
+
+var birthday = function birthday(user) {
+  var tab = {
+    birthday: '',
+    age: 0
+  };
+  var date = user.birth;
+  var parts = date.split("-").reverse();
+  var day = parts[0];
+  var m = months[parts[1] - 1].length > 5 ? months[parts[1] - 1].substring(0, 3) : months[parts[1] - 1];
+  var year = parts[2];
+  var theAge = getAge(date);
+  tab = {
+    birthday: day + " " + m + " " + year,
+    age: theAge
+  };
+  return tab;
+};
+
 var teachers_mutations = {
   GET_TEACHERS_DATA: function GET_TEACHERS_DATA(state, data) {
     state.errors = data.errors;
@@ -76515,6 +77838,14 @@ var teachers_mutations = {
   },
   GET_A_TEACHER_DATA: function GET_A_TEACHER_DATA(state, data) {
     state.editedTeacher = data.teacher;
+    state.targetedTeacher = data.teacher;
+    state.targetedTeacherFirstName = data.targetedTeacherFirstName;
+    state.targetedTeacherLastName = data.targetedTeacherLastName;
+    state.targetedTeacherBirthFMT = birthday(data.teacher).birthday;
+    state.targetedTeacherAge = birthday(data.teacher).age;
+    state.targetedTeacherSubject = getSubject(data.teacher.subject.name);
+    state.targetedTeacherClassesFMT = data.targetedTeacherClassesFMT;
+    state.targetedTeacherClasses = data.classes;
     state.editedTeacherClasses = data.classes;
     state.classesConcernedByATeacher = data.classesConcerned;
     state.classesRefused = data.classesRefused;
@@ -76527,6 +77858,13 @@ var teachers_mutations = {
     state.cl3 = classes.c3;
     state.cl4 = classes.c4;
     state.cl5 = classes.c5;
+  },
+  UNSET_EDITED_TEACHER_CLASSES: function UNSET_EDITED_TEACHER_CLASSES(state) {
+    state.cl1 = '';
+    state.cl2 = '';
+    state.cl3 = '';
+    state.cl4 = '';
+    state.cl5 = '';
   },
   RESET_EDITED_TEACHER_CLASSES1_CONFIRM: function RESET_EDITED_TEACHER_CLASSES1_CONFIRM(state) {
     state.teacherHasNewClasse = undefined;
@@ -76551,6 +77889,10 @@ var teachers_mutations = {
     state.targetTeacherFirstName = object.dataFMT.fist;
     state.targetTeacherLastName = object.dataFMT.last;
   },
+  GET_A_TARGETED_TEACHER: function GET_A_TARGETED_TEACHER(state, data) {
+    state.token = data.token;
+    state.targetedTeacher = data.targetedTeacher;
+  },
   SET_EDITED_TEACHER: function SET_EDITED_TEACHER(state, teacher) {
     state.editedTeacher = teacher;
   },
@@ -76566,6 +77908,12 @@ var teachers_mutations = {
   },
   RESET_EDITED_TEACHER: function RESET_EDITED_TEACHER(state) {
     state.editedTeacher = {};
+  },
+  RESET_ALERT_CLASSE_DETACH: function RESET_ALERT_CLASSE_DETACH(state, data) {
+    state.classeDetachAlert = {
+      status: data.status,
+      msg: data.msg
+    };
   },
   SHOW_TEACHERS_BY_LEVEL: function SHOW_TEACHERS_BY_LEVEL(state, level) {
     var notBlockedSpace = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
@@ -76645,7 +77993,8 @@ var classes_states = {
     classeFMT: {
       name: '',
       idc: '',
-      sup: ''
+      sup: '',
+      id: 0
     },
     heads: {
       teacher: {},
@@ -76741,10 +78090,34 @@ var pupils_states = {
   PSBlockeds: [],
   PPBlockeds: [],
   alertPupilsSearch: 'Tous les apprenants',
-  marks: {
-    first: {},
-    second: {},
-    third: {}
+  targetPupilMarks: {
+    first: {
+      epe1: {},
+      epe2: {},
+      epe3: {},
+      epe4: {},
+      epe5: {},
+      dev1: {},
+      dev2: {}
+    },
+    second: {
+      epe1: {},
+      epe2: {},
+      epe3: {},
+      epe4: {},
+      epe5: {},
+      dev1: {},
+      dev2: {}
+    },
+    third: {
+      epe1: {},
+      epe2: {},
+      epe3: {},
+      epe4: {},
+      epe5: {},
+      dev1: {},
+      dev2: {}
+    }
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (pupils_states);
@@ -76831,13 +78204,21 @@ var teachers_states = {
   AllTeachersWithSubject: [],
   //With her subject formatted
   secondaryTeachers: {},
-  targetTeacher: {},
-  targetTeacherName: '',
-  targetTeacherLastName: '',
-  targetTeacherFirstName: '',
-  targetTeacherClasseFMT: {},
-  targetTeacherBirthFMT: '',
-  age: '',
+  targetedTeacher: {
+    subject: {}
+  },
+  targetedTeacherLastName: '',
+  targetedTeacherFirstName: '',
+  targetedTeacherSubject: "",
+  targetedTeacherClasseFMT: {},
+  targetedTeacherBirthFMT: '',
+  targetedTeacherAge: '',
+  targetedTeacherClassesFMT: [],
+  targetedTeacherClasses: [],
+  classeDetachAlert: {
+    status: false,
+    msg: ""
+  },
   newTeacher: {
     name: '',
     birth: '',

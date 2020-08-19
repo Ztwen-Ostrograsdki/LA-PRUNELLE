@@ -177,7 +177,7 @@
             },
 
             filtrer(level){
-                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, status: false})
+                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, blockedSpace: true})
             },
 
             birthday(user)

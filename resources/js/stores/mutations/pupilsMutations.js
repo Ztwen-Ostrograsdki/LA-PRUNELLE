@@ -64,7 +64,7 @@ const pupils_mutations = {
 
 
 	SHOW_PUPILS_BY_LEVEL: (state, data) => {
-		if(data.notBlockedSpace == true){
+		if(data.blockedSpace == false){
             if(data.level == 'secondary'){
                 state.pupils = state.secondaryPupils
                 state.alertPupilsSearch = "Les eleves du secondaire"
@@ -81,7 +81,7 @@ const pupils_mutations = {
         else{
             if(data.level == 'secondary'){
                 state.pupilsBlockeds = state.PSBlockeds
-                state.alertPupilsSearch = "Les eleves du secondaire red"
+                state.alertPupilsSearch = "Les eleves du secondaire"
             }
             else if (data.level == 'primary') {
                 state.pupilsBlockeds = state.PPBlockeds

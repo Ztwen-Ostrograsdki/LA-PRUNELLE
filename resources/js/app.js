@@ -55,6 +55,7 @@ let login = Vue.component('login', require('./components/connexions/LoginCompone
 
 let pupils_add = Vue.component('pupil-add', require('./components/formulars/pupils/AddNewComponent.vue').default)
 let pupils_perso_edit = Vue.component('pupil-perso', require('./components/formulars/pupils/EditPersonalComponent.vue').default)
+let pupils_edit_marks = Vue.component('pupil-edit-marks', require('./components/formulars/pupils/EditMarkComponent.vue').default)
 
 let teachers_add = Vue.component('teacher-add', require('./components/formulars/teachers/AddNewComponent.vue').default)
 let teachers_perso_edit = Vue.component('teacher-perso', require('./components/formulars/teachers/EditPersonalComponent.vue').default)
@@ -72,9 +73,8 @@ let teachers_redList = Vue.component('teachers-redList', require('./components/t
 let teachers_profil = Vue.component('profil-component-teachers', require('./components/teachers/ProfilComponent.vue').default)
 let teachers_profil_main = Vue.component('teacher-profil-main', require('./components/teachers/ProfilLayouts/MainProfilComponent.vue').default)
 let teachers_perso_data = Vue.component('teacher-perso-data', require('./components/teachers/ProfilLayouts/PersonalBoxComponent.vue').default)
-let teachers_parents_data = Vue.component('teacher-parents-data', require('./components/teachers/ProfilLayouts/ParentalBoxComponent.vue').default)
-let teachers_marks_data = Vue.component('teacher-marks-data', require('./components/teachers/ProfilLayouts/MarksBoxComponent.vue').default)
 let teachers_profil_box = Vue.component('profil-teacher-box', require('./components/teachers/ProfilLayouts/ProfilBoxComponent.vue').default)
+let teachers_classes_box = Vue.component('profil-teacher-classes-box', require('./components/teachers/ProfilLayouts/TeacherClassesBoxComponent.vue').default)
 
 
 const routes = [

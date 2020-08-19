@@ -2,13 +2,19 @@ const teachers_states = {
     AllTeachersWithClasses : [], //With her classes formatted
     AllTeachersWithSubject : [], //With her subject formatted
     secondaryTeachers : {},
-    targetTeacher : {},
-    targetTeacherName: '',
-    targetTeacherLastName: '',
-    targetTeacherFirstName: '',
-    targetTeacherClasseFMT: {},
-    targetTeacherBirthFMT: '',
-    age: '',
+    targetedTeacher : {
+        subject: {},
+    },
+    targetedTeacherLastName: '',
+    targetedTeacherFirstName: '',
+    targetedTeacherSubject: "",
+    targetedTeacherClasseFMT: {},
+    targetedTeacherBirthFMT: '',
+    targetedTeacherAge: '',
+    targetedTeacherClassesFMT : [],
+    targetedTeacherClasses : [],
+    classeDetachAlert: {status: false, msg: ""},
+
 
     newTeacher: {
         name: '',

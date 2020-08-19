@@ -32,10 +32,35 @@ const pupils_states = {
     PPBlockeds: [],
     alertPupilsSearch: 'Tous les apprenants',
 
-    marks: {
-        first: {},
-        second: {},
-        third: {},
+    targetPupilMarks: {
+        first: {
+            epe1: {},
+            epe2: {},
+            epe3: {},
+            epe4: {},
+            epe5: {},
+            dev1: {},
+            dev2: {},
+        },
+        second: {
+            epe1: {},
+            epe2: {},
+            epe3: {},
+            epe4: {},
+            epe5: {},
+            dev1: {},
+            dev2: {},
+        },
+        third: {
+            epe1: {},
+            epe2: {},
+            epe3: {},
+            epe4: {},
+            epe5: {},
+            dev1: {},
+            dev2: {},
+        },
+        
     }
 }
 

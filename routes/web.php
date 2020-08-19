@@ -73,6 +73,7 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::resource('users', 'Master\UsersController')->middleware('onlySuperAdmin');
 		Route::post('teachersm/registration/u={withUser}', 'Master\TeachersController@createTeacher')->name('teachersm.create.teachers');
 		Route::put('teachersm/upate&teachers&personal&data/id={teacher}/u={withUser}', 'Master\TeachersController@updatePersonalTeacherData')->name('teachersm.update.teachersPersonal');
+		Route::delete('teachersm/disjoined&classe&with&this&teacher/t={teacher}/c={classe}', 'Master\TeachersController@detachTeacherAndClasse');
 		Route::delete('teachersm/detach/t={teacher}&c={classe}', 'Master\TeachersController@detachTeacherAndClasse')->name('teachersm.detach.classe');
 		Route::delete('teachersm/detachs/t={teacher}', 'Master\TeachersController@detachTeacherAndClasse')->name('teachersm.detach.classes');
 

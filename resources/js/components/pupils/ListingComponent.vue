@@ -187,7 +187,7 @@
                 return sexe == "male" ? 'M' : 'F'
             },
             filtrer(level){
-                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, status: true})
+                this.$store.commit('SHOW_PUPILS_BY_LEVEL', {level, blockedSpace: false})
             },
 
             birthday(user)

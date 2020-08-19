@@ -79,6 +79,12 @@
 <script>
 	import { mapState } from 'vuex'
 	export default{
+        data(){
+            return{
+                
+            }
+        },
+
 
 		methods: {
 
@@ -95,7 +101,7 @@
                 this.$store.dispatch('getUsers')
             }
 		},
-
+        
 		computed: mapState([
             'user', 'admin', 'errors', 'userSettings', 'noUser'
         ])

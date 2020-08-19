@@ -7,7 +7,8 @@ const classes_states = {
         classeFMT: {
             name: '',
             idc: '',
-            sup: ''
+            sup: '',
+            id: 0
         },
         heads: {
             teacher: {},

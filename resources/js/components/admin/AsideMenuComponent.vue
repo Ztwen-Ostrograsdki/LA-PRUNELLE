@@ -1,5 +1,5 @@
 <template>
-	<div id="wrapper-admin" class="position-absolute modal-home-nav-admin border-right border-bottom" style="top: -20px; left: 0.0; display:none ; z-index: 1000000; background-image: url(/media/img/art-2578353_1920.jpg) !important; background-position: -200px 200px; padding: 0px; height: 460px;" >
+	<div id="wrapper-admin" class="position-absolute modal-home-nav-admin border-right border-bottom" style="top: -20px; left: 0.0; display:none ; z-index: 1000000; background-image: url(/media/img/art-2578353_1920.jpg) !important; background-position: -200px 200px; padding: 0px; height: 480px; overflow-y: auto; outline: 0;" >
 	    <ul class="menu" style="width: 99%;">
 	        <li class="item1 text-left">
 	            <router-link to="/admin/director/master">
@@ -96,6 +96,17 @@
 	                <li class="subitem1"><a href="#">Cute Kittens </a></li>
 	                <li class="subitem2"><a href="#">Strange “Stuff” </a></li>
 	                <li class="subitem3"><a href="#">Automatic Fails </a></li>
+	            </ul>
+	        </li>
+	        <li class="item6">
+	            <a href="#">
+	                <i class="fa fa-line-chart float-left mt-1 mr-3" style="font-size: 25px"></i>Les examens
+	                <span id="span-counter">98%</span>
+	            </a>
+	            <ul>
+	                <li class="subitem1"><a href="#">Le BAC <i class="float-right mr-3">( 100% )</i></a></li>
+	                <li class="subitem2"><a href="#">Le BEPC <i class="float-right mr-3">( 100% )</i></a></li>
+	                <li class="subitem3"><a href="#">Le CEP <i class="float-right mr-3">( 100% )</i></a></li>
 	            </ul>
 	        </li>
 	    </ul>

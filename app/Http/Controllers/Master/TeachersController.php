@@ -53,26 +53,17 @@ class TeachersController extends Controller
             }
         }
 
+        $classesFMT = $teacher->getFormattedclasses();
+
         $isAE = $teacher->isAE();
 
-        $helper = new ModelHelper($teacher);
-        $surname = $helper->setLastNameAndFirstName();
+        $helper = (new ModelHelper($teacher))->setLastNameAndFirstName();
         $lastName = $helper->getLastName();
         $firstName = $helper->getFirstName();
-
-        $data = [
-            'teacher' => $teacher,
-            'token' => $token,
-            'classes' => $classes,
-            'isAE' => $isAE
-        ];
 
         if ($teacher->level == "secondary") {
             $classesConcerned = $teacher->classesConcernedByThisTeacher(); //Classes pouvant recevoir les cours de l'enseignant
             $classesRefused = $teacher->classesConcernedByThisTeacherButNot();
-
-            $data['classesConcerned'] = $classesConcerned;
-            $data['classesRefused'] = $classesRefused;
         }
         else{
             $classesC = Classe::whereLevel('primary')->get();
@@ -81,11 +72,38 @@ class TeachersController extends Controller
                 $classesConcerned[$cc->id] = $cc;
             }
             $classesRefused = $teacher->classesConcernedByThisTeacherButNot('primary');
-            $data['classesConcerned' ] = $classesConcerned;
-            $data['classesRefused' ] = $classesRefused;
         }
 
+        $data = [
+            'teacher' => $teacher,
+            'token' => $token,
+            'classes' => $classes,
+            'targetedTeacherClassesFMT' => $classesFMT,
+            'targetedTeacherLastName' => $lastName,
+            'targetedTeacherFirstName' => $firstName,
+            'classesConcerned' => $classesConcerned,
+            'classesRefused' => $classesRefused,
+            'isAE' => $isAE
+        ];
+
+        // $data = [
+        //     'targetedClasse' => [
+        //         'classe' => $classe, 
+        //         'classeFMT' => $classeFMT, 
+        //         'subjects' => $subjects, 
+        //         'pupils' => $pupils, 
+        //         'heads' => [
+        //             'teacher' => $teacher, 
+        //             'respo1' => $respo1, 
+        //             'respo2' => $respo2
+        //         ],
+        //     ], 
+        //     'token' => $token
+        // ];
+
         return response()->json($data);
+
+
     }
 
 
@@ -324,13 +342,7 @@ class TeachersController extends Controller
      */
     public function show(int $id)
     {
-        $id = (int)$id;
-        $teacher = Teacher::whereId($id)->firstOrFail();
-        $t = (new ModelHelper($teacher))->setNameAndSurname();
-        if ($teacher->level == 'secondary') {
-            $teacher->subject->setSlug();
-        }
-        return view('directors.teachers.profil', compact('teacher', 'id', 't'));
+        return view('directors.teachers.profil');
     }
     /**
      * Show the form for editing the specified resource.
@@ -433,19 +445,38 @@ class TeachersController extends Controller
      * @param  int    $classe  
      * @return [type]          
      */
-    public function detachTeacherAndClasse(int $teacher, int $classe = null)
+    public function detachTeacherAndClasse(int $teacher, $classe)
     {
         $teacher = Teacher::find((int)$teacher);
+        $classeID = (int)$classe;
 
-        if ($classe !== null) {
-            $classe = Classe::find((int)$classe);
-            $teacher->classes()->detach($classe->id);
-            return back()->with('info', "Mise à jour réussie. Le prof $teacher->name ne garde plus $classe->name")->with('type', 'info-success');
+        if ($classe !== 'fresh' && is_int($classeID)) {
+
+            $classes = [];
+
+            $teacherClasses = $teacher->classes;
+
+            if ($teacher->level == 'secondary') {
+                if ($teacher->classes->count() > 0) {
+                    foreach ($teacher->classes as $classe) {
+                        $classes[] = $classe->id;
+                    }
+                }
+            }
+
+            if ($classes == [] || ($classes !== [] && !in_array($classeID, $classes))) {
+                return response()->json(["failed" => "La requête est inconnue"]);
+            }
+            else{
+                $c = Classe::find($classeID);
+                $teacher->classes()->detach($classeID);
+                return response()->json(["success" => "Le prof " .$teacher->name. " ne garde plus la classe de ". $c->name]);
+            }
+            
         }
-        elseif ($classe == null) {
+        elseif($classe == 'fresh') {
             $classes = $teacher->classes;
             foreach ($classes as $classe) {
-
                 $teacherIsPrincipal = $teacher->classe;
                 if ($teacherIsPrincipal !== null) {
                     $classe->teacher_id = null;
@@ -453,8 +484,11 @@ class TeachersController extends Controller
                 }
                 $teacher->classes()->detach($classe->id);
             }
-            return back()->with('info', "Rafraichissement réussi. Le prof $teacher->name ne garde plus de classes")->with('type', 'info-success');
+            
         }
+        return response()->json(["success" => "Le prof " .$teacher->name. " ne garde plus de classe!"]);
+
+        // return $this->teachersDataSender($teacher, []);
         
     }
 

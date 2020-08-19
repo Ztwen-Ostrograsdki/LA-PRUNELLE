@@ -192,6 +192,7 @@
 
 			updateEditedTeacherClasses(teacher, token, isAE){
 				let classes = {}
+				let route = this.$route
 				if(teacher.level == "secondary"){
 					classes = {
 						c1: $('form#teacher-classes-edit select[name=classe1]').val(),
@@ -200,7 +201,7 @@
 						c4: $('form#teacher-classes-edit select[name=classe4]').val(),
 						c5: $('form#teacher-classes-edit select[name=classe5]').val()
 					}
-					this.$store.dispatch('updateTeacherClasses', {teacher, classes, token, isAE})
+					this.$store.dispatch('updateTeacherClasses', {teacher, classes, token, isAE, route})
 				}
 				else if(teacher.level == "primary"){
 					classes = {
@@ -259,24 +260,7 @@
 			},
 
 			disabledSelectedKeys(allInputs = [], current){
-				// let disabled = ''
-				// var b = $(function(){
-				// 	let inputs = []
-				// 	for (var i = 0; i < allInputs.length; i++) {
-				// 		let input = $("form#teacher-classes-edit select[name=" + allInputs[i] + "]").val()
-				// 		inputs.push(parseInt(input, 10))
-				// 	}
-
-				// 	if(inputs.indexOf(current) !== -1){
-				// 		return disabled = "disabled"
-				// 	}
-				// 	else{
-				// 		return disabled = ""
-				// 	}
-				// })
-				// console.log(b)
-
-				// return disabled
+				
 			}
 			
 		},
